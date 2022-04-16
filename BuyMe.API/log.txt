@@ -1,0 +1,14 @@
+2022-04-12 19:02:03.072 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-12 19:02:03.117 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-12 19:02:03.119 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-12 19:02:03.120 +05:30 [INF] Hosting environment: Development
+2022-04-12 19:02:03.122 +05:30 [INF] Content root path: C:\Users\NKJ022\source\repos\Demo1\BuyMe.API
+2022-04-12 19:02:05.050 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-12 19:02:05.149 +05:30 [INF] Request finished in 103.2823ms 404 
+2022-04-14 18:10:17.976 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-14 18:10:17.998 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-14 18:10:17.999 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-14 18:10:18.000 +05:30 [INF] Hosting environment: Development
+2022-04-14 18:10:18.000 +05:30 [INF] Content root path: C:\Users\NKJ022\source\repos\Demo1\BuyMe.API
+2022-04-14 18:10:18.760 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-14 18:10:18.831 +05:30 [INF] Request finished in 78.0675ms 404 
