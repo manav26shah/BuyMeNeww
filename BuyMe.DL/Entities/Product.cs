@@ -8,8 +8,13 @@ namespace BuyMe.DL.Entities
     public class Product
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
+        public decimal MRPAmount { get; set; }
+        public int DiscountPercentage { get; set; }
+        public bool InStock { get; set; }
+        public int MaxOrderAmount { get; set; }
+        public string InventoryId { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using BuyMe.API.Config;
 using BuyMe.BL;
+using BuyMe.BL.Implementation;
 using BuyMe.BL.Interface;
 using BuyMe.DL;
 using Microsoft.AspNetCore.Builder;
@@ -33,23 +34,30 @@ namespace BuyMe.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IUserService, User>();
-            services.AddSingleton<IUserService, User>();
-            services.AddTransient<IUserService, User>(); // registering services
+            RegisterDbServices(services);
+            RegisterBusinessServces(services);
+            RegisterConfigurations(services);
+        }
 
-            // Register Configuration
+        public void RegisterBusinessServces(IServiceCollection services)
+        {
+            services.AddScoped<IProductService, ProductService>();
+        }
+        public void RegisterConfigurations(IServiceCollection services)
+        {
             services.Configure<EmailConfig>(Configuration.GetSection("Email"));
             services.Configure<AuthConfig>(Configuration.GetSection("Auth"));
+        }
 
-
-            // Reigster identity
+        public void RegisterDbServices(IServiceCollection services)
+        {
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DbConectionString"));
             });
-          
-        }
 
+            services.AddScoped<IRepo, Repo>();
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

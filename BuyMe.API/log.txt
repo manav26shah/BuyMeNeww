@@ -12,3 +12,136 @@
 2022-04-14 18:10:18.000 +05:30 [INF] Content root path: C:\Users\NKJ022\source\repos\Demo1\BuyMe.API
 2022-04-14 18:10:18.760 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
 2022-04-14 18:10:18.831 +05:30 [INF] Request finished in 78.0675ms 404 
+2022-04-16 10:18:45.690 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-16 10:18:45.713 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-16 10:18:45.714 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-16 10:18:45.715 +05:30 [INF] Hosting environment: Development
+2022-04-16 10:18:45.715 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-16 10:18:46.576 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-16 10:18:46.650 +05:30 [INF] Request finished in 76.1158ms 404 
+2022-04-16 10:19:28.486 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product application/json 142
+2022-04-16 10:19:28.494 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 10:19:28.556 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-16 10:19:28.565 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 2.5064ms
+2022-04-16 10:19:28.567 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 10:19:28.570 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'BuyMe.BL.Interface.IProductService' while attempting to activate 'BuyMe.API.Controllers.ProductController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-16 10:19:28.692 +05:30 [INF] Request finished in 205.731ms 500 text/plain
+2022-04-16 10:26:44.591 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-16 10:26:44.610 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-16 10:26:44.615 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-16 10:26:44.616 +05:30 [INF] Hosting environment: Development
+2022-04-16 10:26:44.617 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-16 10:26:45.475 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-16 10:26:45.537 +05:30 [INF] Request finished in 63.5332ms 404 
+2022-04-16 10:26:51.544 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product application/json 142
+2022-04-16 10:26:51.561 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 10:26:51.628 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-16 10:26:52.626 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-16 10:26:53.284 +05:30 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2022-04-16 10:26:53.333 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.DL.Entities.Product, BuyMe.DL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-16 10:26:53.360 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 1722.4944ms
+2022-04-16 10:26:53.365 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 10:26:53.371 +05:30 [INF] Request finished in 1827.0823ms 200 application/json; charset=utf-8
+2022-04-16 10:53:20.946 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-16 10:53:20.965 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-16 10:53:20.966 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-16 10:53:20.968 +05:30 [INF] Hosting environment: Development
+2022-04-16 10:53:20.969 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-16 10:53:21.915 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-16 10:53:21.966 +05:30 [INF] Request finished in 53.7635ms 404 
+2022-04-16 10:53:25.618 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product application/json 142
+2022-04-16 10:53:25.630 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 10:53:25.682 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-16 10:53:26.295 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-04-16 10:53:26.337 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-16 10:53:26.941 +05:30 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-04-16 10:53:27.014 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.DL.Entities.Product, BuyMe.DL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-16 10:53:27.053 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 1359.3195ms
+2022-04-16 10:53:27.059 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 10:53:27.065 +05:30 [INF] Request finished in 1447.4248ms 200 application/json; charset=utf-8
+2022-04-16 10:54:38.744 +05:30 [INF] Application is shutting down...
+2022-04-16 11:01:00.512 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-16 11:01:00.535 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-16 11:01:00.536 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-16 11:01:00.537 +05:30 [INF] Hosting environment: Development
+2022-04-16 11:01:00.537 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-16 11:01:01.432 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-16 11:01:01.473 +05:30 [INF] Request finished in 46.0158ms 404 
+2022-04-16 11:01:07.886 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product application/json 142
+2022-04-16 11:01:07.892 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 11:01:07.930 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-16 11:01:08.396 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-04-16 11:01:08.422 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-16 11:01:08.841 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-04-16 11:01:08.898 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-16 11:01:08.927 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 989.7692ms
+2022-04-16 11:01:08.933 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 11:01:08.938 +05:30 [INF] Request finished in 1051.5487ms 200 application/json; charset=utf-8
+2022-04-16 11:03:12.599 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-16 11:03:12.628 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-16 11:03:12.629 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-16 11:03:12.630 +05:30 [INF] Hosting environment: Development
+2022-04-16 11:03:12.632 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-16 11:03:13.489 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-16 11:03:13.569 +05:30 [INF] Request finished in 86.4807ms 404 
+2022-04-16 11:03:19.469 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product application/json 142
+2022-04-16 11:03:19.482 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 11:03:19.571 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-16 11:03:20.569 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-04-16 11:03:20.625 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-16 11:03:21.507 +05:30 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-04-16 11:03:21.643 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-16 11:03:21.718 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 2134.0891ms
+2022-04-16 11:03:21.721 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 11:03:21.729 +05:30 [INF] Request finished in 2261.1712ms 200 application/json; charset=utf-8
+2022-04-16 11:03:24.570 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product application/json 142
+2022-04-16 11:03:24.574 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 11:03:24.577 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-16 11:03:24.626 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-16 11:03:24.638 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-04-16 11:03:24.644 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-16 11:03:24.649 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 70.2168ms
+2022-04-16 11:03:24.654 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 11:03:24.656 +05:30 [INF] Request finished in 86.062ms 200 application/json; charset=utf-8
+2022-04-16 11:05:23.824 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-16 11:05:23.841 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-16 11:05:23.843 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-16 11:05:23.843 +05:30 [INF] Hosting environment: Development
+2022-04-16 11:05:23.844 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-16 11:05:24.864 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-16 11:05:24.928 +05:30 [INF] Request finished in 66.7566ms 404 
+2022-04-16 11:05:28.113 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product application/json 142
+2022-04-16 11:05:28.124 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 11:05:28.186 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-16 11:05:28.663 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-04-16 11:05:28.693 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-16 11:05:29.174 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-04-16 11:05:29.252 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-16 11:05:29.293 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 1097.9747ms
+2022-04-16 11:05:29.296 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-16 11:05:29.306 +05:30 [INF] Request finished in 1192.6504ms 200 application/json; charset=utf-8

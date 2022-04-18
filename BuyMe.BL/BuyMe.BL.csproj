@@ -8,8 +8,4 @@
     <ProjectReference Include="..\BuyMe.DL\BuyMe.DL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Implementation\" />
-  </ItemGroup>
-
 </Project>

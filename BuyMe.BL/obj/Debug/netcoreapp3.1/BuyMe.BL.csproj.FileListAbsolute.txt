@@ -1,0 +1,13 @@
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\bin\Debug\netcoreapp3.1\BuyMe.BL.deps.json
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\bin\Debug\netcoreapp3.1\BuyMe.BL.dll
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\bin\Debug\netcoreapp3.1\BuyMe.BL.pdb
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\bin\Debug\netcoreapp3.1\BuyMe.DL.dll
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\bin\Debug\netcoreapp3.1\BuyMe.DL.pdb
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\obj\Debug\netcoreapp3.1\BuyMe.BL.csproj.AssemblyReference.cache
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\obj\Debug\netcoreapp3.1\BuyMe.BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\obj\Debug\netcoreapp3.1\BuyMe.BL.AssemblyInfoInputs.cache
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\obj\Debug\netcoreapp3.1\BuyMe.BL.AssemblyInfo.cs
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\obj\Debug\netcoreapp3.1\BuyMe.BL.csproj.CoreCompileInputs.cache
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\obj\Debug\netcoreapp3.1\BuyMe.BL.csproj.CopyComplete
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\obj\Debug\netcoreapp3.1\BuyMe.BL.dll
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\obj\Debug\netcoreapp3.1\BuyMe.BL.pdb
