@@ -34,11 +34,18 @@ namespace BuyMe.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            AddSwagger(services);
             RegisterDbServices(services);
             RegisterBusinessServces(services);
             RegisterConfigurations(services);
+
         }
 
+        public void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen();
+        }
         public void RegisterBusinessServces(IServiceCollection services)
         {
             services.AddScoped<IProductService, ProductService>();
@@ -65,6 +72,8 @@ namespace BuyMe.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
 

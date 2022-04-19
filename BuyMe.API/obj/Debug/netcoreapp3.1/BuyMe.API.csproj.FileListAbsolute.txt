@@ -19,6 +19,7 @@ C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Microsof
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Serilog.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Serilog.AspNetCore.dll
@@ -32,6 +33,9 @@ C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Serilog.
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Serilog.Sinks.PeriodicBatching.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Serilog.Sinks.RollingFile.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Serilog.Sinks.Seq.dll
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
@@ -52,6 +56,7 @@ C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\obj\Debug\netcoreapp3.1\BuyMe.AP
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\obj\Debug\netcoreapp3.1\BuyMe.API.AssemblyInfoInputs.cache
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\obj\Debug\netcoreapp3.1\BuyMe.API.AssemblyInfo.cs
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\obj\Debug\netcoreapp3.1\BuyMe.API.csproj.CoreCompileInputs.cache
+C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\obj\Debug\netcoreapp3.1\BuyMe.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\obj\Debug\netcoreapp3.1\BuyMe.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\obj\Debug\netcoreapp3.1\staticwebassets\BuyMe.API.StaticWebAssets.Manifest.cache
 C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\obj\Debug\netcoreapp3.1\BuyMe.API.RazorTargetAssemblyInfo.cache

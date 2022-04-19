@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 namespace BuyMe.API.Controllers
 {
     [ApiController]
-    [Route("user")]
+    [Route("api/[controller]")]
     [LoggingFilter]
     public class UserController:ControllerBase
     {

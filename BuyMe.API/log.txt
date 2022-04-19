@@ -145,3 +145,93 @@ FROM [Products] AS [p]
 2022-04-16 11:05:29.293 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 1097.9747ms
 2022-04-16 11:05:29.296 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
 2022-04-16 11:05:29.306 +05:30 [INF] Request finished in 1192.6504ms 200 application/json; charset=utf-8
+2022-04-19 19:28:54.867 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-19 19:28:54.905 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-19 19:28:54.907 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-19 19:28:54.908 +05:30 [INF] Hosting environment: Development
+2022-04-19 19:28:54.910 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-19 19:28:56.985 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-19 19:28:57.107 +05:30 [INF] Request finished in 129.3599ms 404 
+2022-04-19 19:29:01.776 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger  
+2022-04-19 19:29:01.790 +05:30 [INF] Request finished in 13.9716ms 404 
+2022-04-19 19:29:55.997 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-19 19:29:56.030 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-19 19:29:56.031 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-19 19:29:56.032 +05:30 [INF] Hosting environment: Development
+2022-04-19 19:29:56.034 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-19 19:29:57.388 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-19 19:29:57.426 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-19 19:29:57.759 +05:30 [INF] Request finished in 379.5787ms 500 text/html; charset=utf-8
+2022-04-19 19:29:58.139 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico  
+2022-04-19 19:29:58.147 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method(Closure , Object , HttpContext , IServiceProvider )
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass4_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-19 19:29:58.161 +05:30 [INF] Request finished in 25.2717ms 500 text/plain
+2022-04-19 19:30:27.489 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-19 19:30:27.520 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-19 19:30:27.521 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-19 19:30:27.522 +05:30 [INF] Hosting environment: Development
+2022-04-19 19:30:27.523 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-19 19:30:29.384 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/weatherforecast  
+2022-04-19 19:30:29.599 +05:30 [INF] Request finished in 223.6159ms 404 
+2022-04-19 19:30:37.069 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger  
+2022-04-19 19:30:37.083 +05:30 [INF] Request finished in 14.5228ms 301 
+2022-04-19 19:30:37.096 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-19 19:30:37.224 +05:30 [INF] Request finished in 127.8205ms 200 text/html;charset=utf-8
+2022-04-19 19:30:37.307 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+2022-04-19 19:30:37.310 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js  
+2022-04-19 19:30:37.311 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js  
+2022-04-19 19:30:37.444 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-04-19 19:30:37.456 +05:30 [INF] Request finished in 148.758ms 200 text/css
+2022-04-19 19:30:37.465 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-04-19 19:30:37.489 +05:30 [INF] Request finished in 178.7821ms 200 application/javascript
+2022-04-19 19:30:37.506 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-04-19 19:30:37.510 +05:30 [INF] Request finished in 200.4517ms 200 application/javascript
+2022-04-19 19:30:38.424 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-19 19:30:38.504 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/favicon-32x32.png  
+2022-04-19 19:30:38.513 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-04-19 19:30:38.518 +05:30 [INF] Request finished in 14.8681ms 200 image/png
+2022-04-19 19:30:38.748 +05:30 [INF] Request finished in 327.2187ms 200 application/json;charset=utf-8
+2022-04-19 19:31:44.940 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Product  
+2022-04-19 19:31:44.971 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-19 19:31:45.045 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-19 19:31:46.713 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-04-19 19:31:46.827 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-19 19:31:52.142 +05:30 [INF] Executed DbCommand (86ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-04-19 19:31:52.375 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-19 19:31:52.419 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 7352.125ms
+2022-04-19 19:31:52.426 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-19 19:31:52.442 +05:30 [INF] Request finished in 7503.0519ms 200 application/json; charset=utf-8
+2022-04-19 19:34:06.939 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-19 19:34:06.962 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-19 19:34:06.963 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-19 19:34:06.965 +05:30 [INF] Hosting environment: Development
+2022-04-19 19:34:06.967 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-19 19:34:09.073 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-19 19:34:09.318 +05:30 [INF] Request finished in 255.4604ms 200 text/html;charset=utf-8
+2022-04-19 19:34:10.079 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-19 19:34:10.371 +05:30 [INF] Request finished in 292.1372ms 200 application/json;charset=utf-8
+2022-04-19 19:34:32.468 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/User/1  
+2022-04-19 19:34:32.585 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.GetUserDetails (BuyMe.API)'
+2022-04-19 19:34:32.695 +05:30 [INF] Route matched with {action = "GetUserDetails", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUserDetails(Int32) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-04-19 19:34:32.786 +05:30 [INF] Request originated
+2022-04-19 19:34:32.810 +05:30 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2022-04-19 19:34:32.833 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.GetUserDetails (BuyMe.API) in 110.7007ms
+2022-04-19 19:34:32.844 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.GetUserDetails (BuyMe.API)'
+2022-04-19 19:34:32.848 +05:30 [INF] Request finished in 382.3197ms 200 text/plain; charset=utf-8
+2022-04-19 19:34:47.907 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-19 19:34:47.924 +05:30 [INF] Request finished in 17.5875ms 200 application/json;charset=utf-8
+2022-04-19 19:34:48.395 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico  
+2022-04-19 19:34:48.412 +05:30 [INF] Request finished in 18.0535ms 404 
+2022-04-19 19:35:46.178 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-19 19:35:46.197 +05:30 [INF] Request finished in 19.9318ms 200 application/json;charset=utf-8
