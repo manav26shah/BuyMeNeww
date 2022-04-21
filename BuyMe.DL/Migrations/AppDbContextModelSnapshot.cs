@@ -18,12 +18,65 @@ namespace BuyMe.DL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("BuyMe.DL.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Test",
+                            Name = "Books"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Test",
+                            Name = "Games"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Test",
+                            Name = "Tools"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Test",
+                            Name = "Mobiles"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Test",
+                            Name = "Laptops"
+                        });
+                });
+
             modelBuilder.Entity("BuyMe.DL.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<int>("DiscountPercentage")
                         .HasColumnType("int");
@@ -48,12 +101,15 @@ namespace BuyMe.DL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Products");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            CategoryId = 4,
                             DiscountPercentage = 10,
                             Image = "oppo1.png",
                             InStock = true,
@@ -65,6 +121,7 @@ namespace BuyMe.DL.Migrations
                         new
                         {
                             Id = 2,
+                            CategoryId = 4,
                             DiscountPercentage = 10,
                             Image = "vivo1.png",
                             InStock = true,
@@ -76,6 +133,7 @@ namespace BuyMe.DL.Migrations
                         new
                         {
                             Id = 3,
+                            CategoryId = 4,
                             DiscountPercentage = 10,
                             Image = "samsung1.png",
                             InStock = true,
@@ -87,6 +145,7 @@ namespace BuyMe.DL.Migrations
                         new
                         {
                             Id = 4,
+                            CategoryId = 4,
                             DiscountPercentage = 10,
                             Image = "IPhone1.png",
                             InStock = true,
@@ -95,6 +154,15 @@ namespace BuyMe.DL.Migrations
                             MaxOrderAmount = 3,
                             Name = "Iphone 13 Max pro"
                         });
+                });
+
+            modelBuilder.Entity("BuyMe.DL.Entities.Product", b =>
+                {
+                    b.HasOne("BuyMe.DL.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

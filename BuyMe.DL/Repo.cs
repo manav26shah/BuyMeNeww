@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BuyMe.DL
 {
@@ -14,6 +15,18 @@ namespace BuyMe.DL
         {
             _dbContext = dbContext;
         }
+
+        public async  Task<bool> AddNewProduct(Product newProduct)
+        {
+            _dbContext.Products.Add(newProduct);
+            var result = await _dbContext.SaveChangesAsync();
+            if (result == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public List<Product> GetProducts()
         {
             return _dbContext.Products.ToList();

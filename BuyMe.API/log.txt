@@ -235,3 +235,117 @@ FROM [Products] AS [p]
 2022-04-19 19:34:48.412 +05:30 [INF] Request finished in 18.0535ms 404 
 2022-04-19 19:35:46.178 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
 2022-04-19 19:35:46.197 +05:30 [INF] Request finished in 19.9318ms 200 application/json;charset=utf-8
+2022-04-21 18:06:50.621 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-21 18:06:50.657 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-21 18:06:50.658 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-21 18:06:50.659 +05:30 [INF] Hosting environment: Development
+2022-04-21 18:06:50.660 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-21 18:06:53.366 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger  
+2022-04-21 18:06:53.513 +05:30 [INF] Request finished in 156.4278ms 301 
+2022-04-21 18:06:53.521 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-21 18:06:53.640 +05:30 [INF] Request finished in 119.7061ms 200 text/html;charset=utf-8
+2022-04-21 18:06:53.689 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+2022-04-21 18:06:53.700 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js  
+2022-04-21 18:06:53.700 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js  
+2022-04-21 18:06:53.799 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-04-21 18:06:53.799 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-04-21 18:06:53.814 +05:30 [INF] Request finished in 125.0617ms 200 text/css
+2022-04-21 18:06:53.815 +05:30 [INF] Request finished in 114.5547ms 200 application/javascript
+2022-04-21 18:06:53.826 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-04-21 18:06:53.828 +05:30 [INF] Request finished in 128.705ms 200 application/javascript
+2022-04-21 18:06:54.164 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-21 18:06:54.422 +05:30 [INF] Request finished in 258.5677ms 200 application/json;charset=utf-8
+2022-04-21 18:07:01.032 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Login  
+2022-04-21 18:07:01.172 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.LoginController.Login (BuyMe.API)'
+2022-04-21 18:07:01.264 +05:30 [INF] Route matched with {action = "Login", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller BuyMe.API.Controllers.LoginController (BuyMe.API).
+2022-04-21 18:07:01.301 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2022-04-21 18:07:01.337 +05:30 [INF] Executed action BuyMe.API.Controllers.LoginController.Login (BuyMe.API) in 46.8588ms
+2022-04-21 18:07:01.348 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.LoginController.Login (BuyMe.API)'
+2022-04-21 18:07:01.351 +05:30 [INF] Request finished in 322.0174ms 200 application/json; charset=utf-8
+2022-04-21 18:07:13.946 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Product  
+2022-04-21 18:07:13.963 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-21 18:07:13.982 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-21 18:07:15.939 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-04-21 18:07:16.077 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-21 18:07:20.008 +05:30 [INF] Executed DbCommand (93ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-04-21 18:07:20.315 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-21 18:07:20.341 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 6335.0458ms
+2022-04-21 18:07:20.363 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-21 18:07:20.397 +05:30 [INF] Request finished in 6451.609ms 200 application/json; charset=utf-8
+2022-04-21 18:07:41.281 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-21 18:07:41.316 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-21 18:07:41.318 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-21 18:07:41.319 +05:30 [INF] Hosting environment: Development
+2022-04-21 18:07:41.320 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-21 18:07:43.423 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-21 18:07:43.448 +05:30 [INF] Request finished in 33.0584ms 200 
+2022-04-21 18:07:43.696 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico  
+2022-04-21 18:07:43.704 +05:30 [INF] Request finished in 8.0157ms 200 
+2022-04-21 18:23:18.487 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-21 18:23:18.516 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-21 18:23:18.517 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-21 18:23:18.518 +05:30 [INF] Hosting environment: Development
+2022-04-21 18:23:18.519 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-21 18:23:20.402 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-21 18:23:20.557 +05:30 [INF] Request finished in 161.4623ms 200 text/html;charset=utf-8
+2022-04-21 18:23:21.098 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-21 18:23:21.333 +05:30 [INF] Request finished in 235.6662ms 200 application/json;charset=utf-8
+2022-04-21 18:23:26.347 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Product  
+2022-04-21 18:23:26.468 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-21 18:23:26.550 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductController (BuyMe.API).
+2022-04-21 18:23:28.418 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-04-21 18:23:28.561 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-21 18:23:31.755 +05:30 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-04-21 18:23:31.989 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-04-21 18:23:32.044 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API) in 5457.4808ms
+2022-04-21 18:23:32.050 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductController.GetProducts (BuyMe.API)'
+2022-04-21 18:23:32.064 +05:30 [INF] Request finished in 5719.21ms 200 application/json; charset=utf-8
+2022-04-21 18:33:33.945 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-21 18:33:33.983 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-21 18:33:33.984 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-21 18:33:33.987 +05:30 [INF] Hosting environment: Development
+2022-04-21 18:33:33.988 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-21 18:33:35.538 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-21 18:33:35.735 +05:30 [INF] Request finished in 203.1036ms 200 text/html;charset=utf-8
+2022-04-21 18:33:36.101 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-21 18:33:36.336 +05:30 [INF] Request finished in 234.672ms 200 application/json;charset=utf-8
+2022-04-21 18:42:03.020 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-21 18:42:03.052 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-21 18:42:03.055 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-21 18:42:03.058 +05:30 [INF] Hosting environment: Development
+2022-04-21 18:42:03.065 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-21 18:42:05.008 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-21 18:42:05.244 +05:30 [INF] Request finished in 241.4326ms 200 text/html;charset=utf-8
+2022-04-21 18:42:05.686 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-21 18:42:05.954 +05:30 [INF] Request finished in 268.3298ms 200 application/json;charset=utf-8
+2022-04-21 18:46:44.925 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-21 18:46:45.007 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-21 18:46:45.009 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-21 18:46:45.010 +05:30 [INF] Hosting environment: Development
+2022-04-21 18:46:45.011 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-21 18:46:47.151 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-21 18:46:47.389 +05:30 [INF] Request finished in 248.2152ms 200 text/html;charset=utf-8
+2022-04-21 18:46:47.810 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-21 18:46:48.052 +05:30 [INF] Request finished in 241.6118ms 200 application/json;charset=utf-8
+2022-04-21 19:24:51.554 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-21 19:24:51.581 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-21 19:24:51.583 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-21 19:24:51.585 +05:30 [INF] Hosting environment: Development
+2022-04-21 19:24:51.587 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-21 19:24:54.035 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-21 19:24:54.267 +05:30 [INF] Request finished in 238.196ms 200 text/html;charset=utf-8
+2022-04-21 19:24:54.718 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-21 19:24:55.006 +05:30 [INF] Request finished in 287.6406ms 200 application/json;charset=utf-8
+2022-04-21 19:27:21.950 +05:30 [INF] Now listening on: https://localhost:5001
+2022-04-21 19:27:21.994 +05:30 [INF] Now listening on: http://localhost:5000
+2022-04-21 19:27:21.996 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-21 19:27:21.997 +05:30 [INF] Hosting environment: Development
+2022-04-21 19:27:21.998 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-04-21 19:27:24.292 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-04-21 19:27:24.446 +05:30 [INF] Request finished in 164.2451ms 200 text/html;charset=utf-8
+2022-04-21 19:27:24.849 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-21 19:27:25.080 +05:30 [INF] Request finished in 231.5729ms 200 application/json;charset=utf-8

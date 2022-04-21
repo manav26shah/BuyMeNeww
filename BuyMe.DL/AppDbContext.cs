@@ -11,6 +11,7 @@ namespace BuyMe.DL
     {
         
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {
            
@@ -29,7 +30,8 @@ namespace BuyMe.DL
                     DiscountPercentage=10,
                     InStock=true,
                     MaxOrderAmount=3,
-                    InventoryId="Mob-oppo-1"
+                    InventoryId="Mob-oppo-1",
+                    CategoryId = 4
                 },
                 new Product
                 {
@@ -40,7 +42,8 @@ namespace BuyMe.DL
                     DiscountPercentage = 10,
                     InStock = true,
                     MaxOrderAmount = 3,
-                    InventoryId = "Mob-vivo-1"
+                    InventoryId = "Mob-vivo-1",
+                    CategoryId = 4
                 },
                 new Product
                 {
@@ -51,7 +54,8 @@ namespace BuyMe.DL
                     DiscountPercentage = 10,
                     InStock = true,
                     MaxOrderAmount = 3,
-                    InventoryId = "Mob-Sam-1"
+                    InventoryId = "Mob-Sam-1",
+                    CategoryId=4
                 },
                 new Product
                 {
@@ -62,8 +66,47 @@ namespace BuyMe.DL
                     DiscountPercentage = 10,
                     InStock = true,
                     MaxOrderAmount = 3,
-                    InventoryId = "Mob-iphone-1"
+                    InventoryId = "Mob-iphone-1",
+                    CategoryId = 4
                 });
+
+            builder.Entity<Category>().HasData(
+                new Category
+                {
+                    Id=1,
+                    Name="Books",
+                    Description="Test",
+                    
+                },
+                new Category
+                {
+                    Id = 2,
+                    Name = "Games",
+                    Description = "Test"
+                },
+                new Category
+                {
+                    Id = 3,
+                    Name = "Tools",
+                    Description = "Test"
+                },
+                new Category
+                {
+                    Id = 4,
+                    Name = "Mobiles",
+                    Description = "Test"
+                },
+                new Category
+                {
+                    Id = 5,
+                    Name = "Laptops",
+                    Description = "Test"
+                }
+
+
+
+
+            );
            
         }
     }

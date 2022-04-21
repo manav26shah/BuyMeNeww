@@ -5,6 +5,7 @@ using BuyMe.BL.Interface;
 using BuyMe.DL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -72,6 +73,7 @@ namespace BuyMe.API
             {
                 app.UseDeveloperExceptionPage();
             }
+           
             app.UseSwagger();
             app.UseSwaggerUI();
 
@@ -85,6 +87,12 @@ namespace BuyMe.API
             {
                 endpoints.MapControllers();
             });
+           
+        }
+
+        private RequestDelegate SomeMethod(RequestDelegate context)
+        {
+            return context;
         }
     }
 }
