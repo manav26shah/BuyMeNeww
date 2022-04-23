@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace BuyMe.DL
 {
+
+    // Generic Repository pattern
     public class Repo:IRepo
     {
         private AppDbContext _dbContext;

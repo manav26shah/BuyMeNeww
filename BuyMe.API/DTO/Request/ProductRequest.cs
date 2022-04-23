@@ -14,7 +14,7 @@ namespace BuyMe.API.DTO.Request
         [Required]
         public string Name { get; set; }
         /// <summary>
-        /// Category to which this prodcut belongs, if you dont knwo the category consult admin/db
+        /// Category to which this prodcut belongs, if you dont know the category consult admin/db
         /// </summary>
         [Required]
         public int CategoryId { get; set; }
@@ -23,6 +23,10 @@ namespace BuyMe.API.DTO.Request
         /// </summary>
         [Required]
         public decimal MRP { get; set; }
+
+        /// <summary>
+        /// The discount offered
+        /// </summary>
         public string Discount { get; set; }
         public bool InStock { get; set; } = true;
         public int MaxOrderAmount { get; set; } = 5;

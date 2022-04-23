@@ -2,6 +2,7 @@
 using BuyMe.API.DTO.Response;
 using BuyMe.BL;
 using BuyMe.BL.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,6 +23,7 @@ namespace BuyMe.API.Controllers
             _productService = productService;
         }
 
+        // big amount of data 10k products
         [HttpGet]
         public IActionResult GetProducts()
         {
@@ -32,12 +34,12 @@ namespace BuyMe.API.Controllers
             {
                 retProducts.Add(new ProductResponse
                 {
-                    Id=item.Id,
-                    Name=item.Name,
-                    Image=item.Image,
-                    MRPAmount=item.MRPAmount,
-                    Discount=item.DiscountPercentage,
-                    InStock=item.InStock
+                    Id = item.Id,
+                    Name = item.Name,
+                    Image = item.Image,
+                    MRPAmount = item.MRPAmount,
+                    Discount = item.DiscountPercentage,
+                    InStock = item.InStock
                 });
             }  // Auto mapper
             return Ok(retProducts);
@@ -55,6 +57,7 @@ namespace BuyMe.API.Controllers
         /// <param name="data">data required to add new product</param>
         /// <returns></returns>
         [HttpPost]
+       
         public async Task<IActionResult> AddNewProduct([FromBody] ProductRequest data)
         {
             var newProductBl = new ProductBL
@@ -76,19 +79,29 @@ namespace BuyMe.API.Controllers
         }
 
         [HttpPut]
+       
         public IActionResult UpdateExistingProduct()
         {
-            return Ok();
+            return Ok("THis API is not complete");
         }
         [HttpDelete("{id}")]
-        public IActionResult DeleteProduct([FromRoute]int id)
+        public IActionResult DeleteProduct([FromRoute] int id)
         {
             return Ok();
         }
-        [HttpPost("search")] 
+        [HttpPost("search")]
         public IActionResult Search()
         {
             return Ok();
         }
-    }
+
+        // you cannot return a response body , you can only return response headers
+        [HttpHead]
+        public IActionResult TestAPi()
+        {
+            // do some calculation , query db etc for count etc
+            HttpContext.Response.Headers.Add("response-size", "100");
+            return Ok();
+        }
+    }  
 }
