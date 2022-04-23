@@ -11,6 +11,7 @@ namespace BuyMe.API.Filters
     {
         public void OnActionExecuted(ActionExecutedContext context)
         {
+           
             context.HttpContext.Response.Cookies.Append("visited", "true");
         }
 

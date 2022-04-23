@@ -10,9 +10,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using BuyMe.API.ExtensionMethods;
 namespace BuyMe.API.Controllers
 {
+
+   
+    
+
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
@@ -31,6 +35,10 @@ namespace BuyMe.API.Controllers
         [ProducesResponseType(typeof (List<ProductResponse>),StatusCodes.Status200OK)]
         public IActionResult GetProducts()
         {
+
+            var nameOFShip = "Maersk India * * Container";
+            nameOFShip.CountStars();
+            
             var dbProducts = _productService.GetProducts();
             var retProducts = new List<ProductResponse>();
 
@@ -69,6 +77,8 @@ namespace BuyMe.API.Controllers
 
             try
             {
+                var headers = HttpContext.Request.Headers.ToList();
+                
                 var newProductBl = new ProductBL
                 {
                     Name = data.Name,

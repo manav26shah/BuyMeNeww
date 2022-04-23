@@ -20,6 +20,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using BuyMe.API.Middlewares;
 
 namespace BuyMe.API
 {
@@ -77,16 +78,20 @@ namespace BuyMe.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+          
+
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
            
+            
             app.UseSwagger();
             app.UseSwaggerUI();
-
+            app.AddCustomHeader();
             app.UseHttpsRedirection();
-
+            
             app.UseRouting(); // this middleware decides which action method from which controler call, what value to apss, in the querystring 
 
             app.UseAuthorization();
@@ -98,9 +103,12 @@ namespace BuyMe.API
            
         }
 
-        private RequestDelegate SomeMethod(RequestDelegate context)
+      public RequestDelegate Test(RequestDelegate options)
         {
-            return context;
+            
+            return options;
         }
+
+        
     }
 }
