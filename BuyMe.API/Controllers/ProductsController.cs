@@ -5,6 +5,7 @@ using BuyMe.BL.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +18,17 @@ namespace BuyMe.API.Controllers
     public class ProductsController : ControllerBase
     {
         private IProductService _productService;
+        private ILogger<ProductsController> _logger;
 
-        public ProductsController(IProductService productService)
+        public ProductsController(IProductService productService, ILogger<ProductsController> logger)
         {
             _productService = productService;
+            _logger = logger;
         }
 
         // big amount of data 10k products
         [HttpGet]
+        [ProducesResponseType(typeof (List<ProductResponse>),StatusCodes.Status200OK)]
         public IActionResult GetProducts()
         {
             var dbProducts = _productService.GetProducts();
@@ -57,25 +61,42 @@ namespace BuyMe.API.Controllers
         /// <param name="data">data required to add new product</param>
         /// <returns></returns>
         [HttpPost]
-       
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> AddNewProduct([FromBody] ProductRequest data)
         {
-            var newProductBl = new ProductBL
+
+            try
             {
-                Name = data.Name,
-                MRPAmount = data.MRP,
-                CategoryId = data.CategoryId,
-                MaxOrderAmount = data.MaxOrderAmount
-            };
-            var result = await _productService.AddNewProduct(newProductBl);
-            if (result)
-            {
-                return Ok("Product added successfully");
+                var newProductBl = new ProductBL
+                {
+                    Name = data.Name,
+                    MRPAmount = data.MRP,
+                    CategoryId = data.CategoryId,
+                    MaxOrderAmount = data.MaxOrderAmount
+                };
+                var result = await _productService.AddNewProduct(newProductBl);
+                _logger.LogTrace("Connected and sent data to the DB correctly");
+                if (result)
+                {
+                    return StatusCode(StatusCodes.Status201Created);
+
+                }
+                else
+                {
+                    return BadRequest("Error while adding new product");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest("Error while adding new product");
+
+                _logger.LogError(ex.ToString());
+                return StatusCode(StatusCodes.Status500InternalServerError);
+               
             }
+
+            
         }
 
         [HttpPut]

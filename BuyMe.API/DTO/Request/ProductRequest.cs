@@ -28,7 +28,15 @@ namespace BuyMe.API.DTO.Request
         /// The discount offered
         /// </summary>
         public string Discount { get; set; }
+
+        /// <summary>
+        /// Defines if the product is in stock or not
+        /// </summary>
         public bool InStock { get; set; } = true;
+
+        /// <summary>
+        /// Ther maxium amount a user can order
+        /// </summary>
         public int MaxOrderAmount { get; set; } = 5;
     }
 }
