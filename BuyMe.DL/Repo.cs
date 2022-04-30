@@ -32,6 +32,7 @@ namespace BuyMe.DL
         public List<Product> GetProducts()
         {
             return _dbContext.Products.ToList();
+           
         }
     }
 }

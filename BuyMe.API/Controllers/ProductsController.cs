@@ -32,7 +32,8 @@ namespace BuyMe.API.Controllers
 
         // big amount of data 10k products
         [HttpGet]
-        [ProducesResponseType(typeof (List<ProductResponse>),StatusCodes.Status200OK)]
+        [Authorize]
+        [ProducesResponseType(typeof (Response<List<ProductResponse>>),StatusCodes.Status200OK)]
         public IActionResult GetProducts()
         {
 
@@ -54,7 +55,10 @@ namespace BuyMe.API.Controllers
                     InStock = item.InStock
                 });
             }  // Auto mapper
-            return Ok(retProducts);
+
+            var res = new Response<List<ProductResponse>>();
+            res.Data = retProducts;
+            return Ok(res);
         }
 
         [HttpGet("{id}")]
@@ -95,7 +99,8 @@ namespace BuyMe.API.Controllers
                 }
                 else
                 {
-                    return BadRequest("Error while adding new product");
+                   
+                    return BadRequest();
                 }
             }
             catch (Exception ex)

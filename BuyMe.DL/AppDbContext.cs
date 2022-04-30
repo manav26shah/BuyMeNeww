@@ -1,4 +1,5 @@
 ﻿using BuyMe.DL.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace BuyMe.DL
 {
-    public class AppDbContext :DbContext // this inherits from DbContext
+    public class AppDbContext :IdentityDbContext<BuyMeUser> // this inherits from DbContext
     {
         
         public DbSet<Product> Products { get; set; }
@@ -17,9 +18,9 @@ namespace BuyMe.DL
            
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder builder)      
         {
-            //base.OnModelCreating(builder);
+            base.OnModelCreating(builder);
             builder.Entity<Product>().HasData(
                 new Product
                 {
