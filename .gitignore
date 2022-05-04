@@ -397,3 +397,6 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 BuyMe.API/log.txt
+BuyMe.API/Email.txt
+BuyMe.API/log.txt
+BuyMe.API/log.txt

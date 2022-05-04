@@ -1058,3 +1058,284 @@ FROM [Products] AS [p]
 2022-04-30 12:55:19.490 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductsController.GetProducts (BuyMe.API) in 27.564ms
 2022-04-30 12:55:19.492 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductsController.GetProducts (BuyMe.API)'
 2022-04-30 12:55:19.495 +05:30 [INF] Request finished in 52.1551ms 200 application/json; charset=utf-8
+2022-05-04 18:31:56.210 +05:30 [INF] User profile is available. Using 'C:\Users\NKJ022\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-05-04 18:31:56.787 +05:30 [INF] Now listening on: https://localhost:5001
+2022-05-04 18:31:56.793 +05:30 [INF] Now listening on: http://localhost:5000
+2022-05-04 18:31:56.794 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 18:31:56.795 +05:30 [INF] Hosting environment: Development
+2022-05-04 18:31:56.796 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-05-04 18:31:58.219 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-05-04 18:31:58.341 +05:30 [INF] Request finished in 125.4256ms 200 text/html;charset=utf-8
+2022-05-04 18:31:58.616 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-05-04 18:31:58.753 +05:30 [INF] Request finished in 137.2162ms 200 application/json;charset=utf-8
+2022-05-04 18:32:22.656 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5001/api/User/authtoken application/json 61
+2022-05-04 18:32:22.756 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.Login (BuyMe.API)'
+2022-05-04 18:32:22.791 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BuyMe.API.DTO.Request.LoginRequest) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 18:32:23.570 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-05-04 18:32:23.601 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 18:32:25.562 +05:30 [INF] Executed DbCommand (57ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 18:32:25.847 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response`1[[BuyMe.API.DTO.Response.LoginResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-04 18:32:25.863 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.Login (BuyMe.API) in 3065.6292ms
+2022-05-04 18:32:25.864 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.Login (BuyMe.API)'
+2022-05-04 18:32:25.872 +05:30 [INF] Request finished in 3217.7087ms 200 application/json; charset=utf-8
+2022-05-04 18:32:49.075 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Products  
+2022-05-04 18:32:49.136 +05:30 [INF] Successfully validated the token.
+2022-05-04 18:32:49.142 +05:30 [INF] Authorization was successful.
+2022-05-04 18:32:49.144 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductsController.GetProducts (BuyMe.API)'
+2022-05-04 18:32:49.149 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductsController (BuyMe.API).
+2022-05-04 18:32:49.179 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 18:32:49.194 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-05-04 18:32:49.210 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response`1[[System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-05-04 18:32:49.216 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductsController.GetProducts (BuyMe.API) in 60.2561ms
+2022-05-04 18:32:49.219 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductsController.GetProducts (BuyMe.API)'
+2022-05-04 18:32:49.223 +05:30 [INF] Request finished in 148.0621ms 200 application/json; charset=utf-8
+2022-05-04 19:05:24.664 +05:30 [INF] User profile is available. Using 'C:\Users\NKJ022\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-05-04 19:05:25.135 +05:30 [INF] Now listening on: https://localhost:5001
+2022-05-04 19:05:25.145 +05:30 [INF] Now listening on: http://localhost:5000
+2022-05-04 19:05:25.147 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 19:05:25.147 +05:30 [INF] Hosting environment: Development
+2022-05-04 19:05:25.148 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-05-04 19:05:26.758 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-05-04 19:05:26.885 +05:30 [INF] Request finished in 134.992ms 200 text/html;charset=utf-8
+2022-05-04 19:05:27.147 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-05-04 19:05:27.354 +05:30 [INF] Request finished in 202.0646ms 200 application/json;charset=utf-8
+2022-05-04 19:05:44.699 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5001/api/User/authtoken application/json 61
+2022-05-04 19:05:44.826 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.Login (BuyMe.API)'
+2022-05-04 19:05:44.868 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BuyMe.API.DTO.Request.LoginRequest) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 19:05:45.759 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-05-04 19:05:45.788 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 19:05:47.177 +05:30 [INF] Executed DbCommand (67ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:05:47.483 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response`1[[BuyMe.API.DTO.Response.LoginResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-04 19:05:47.497 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.Login (BuyMe.API) in 2621.5113ms
+2022-05-04 19:05:47.499 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.Login (BuyMe.API)'
+2022-05-04 19:05:47.504 +05:30 [INF] Request finished in 2805.2769ms 200 application/json; charset=utf-8
+2022-05-04 19:06:28.898 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Products  
+2022-05-04 19:06:29.032 +05:30 [INF] Successfully validated the token.
+2022-05-04 19:06:29.044 +05:30 [INF] Authorization was successful.
+2022-05-04 19:06:29.046 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.ProductsController.GetProducts (BuyMe.API)'
+2022-05-04 19:06:29.051 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Products"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetProducts() on controller BuyMe.API.Controllers.ProductsController (BuyMe.API).
+2022-05-04 19:06:29.098 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 19:06:29.121 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[DiscountPercentage], [p].[Image], [p].[InStock], [p].[InventoryId], [p].[MRPAmount], [p].[MaxOrderAmount], [p].[Name]
+FROM [Products] AS [p]
+2022-05-04 19:06:29.144 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response`1[[System.Collections.Generic.List`1[[BuyMe.API.DTO.Response.ProductResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-05-04 19:06:29.156 +05:30 [INF] Executed action BuyMe.API.Controllers.ProductsController.GetProducts (BuyMe.API) in 101.1385ms
+2022-05-04 19:06:29.166 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.ProductsController.GetProducts (BuyMe.API)'
+2022-05-04 19:06:29.170 +05:30 [INF] Request finished in 273.2493ms 200 application/json; charset=utf-8
+2022-05-04 19:12:22.160 +05:30 [INF] User profile is available. Using 'C:\Users\NKJ022\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-05-04 19:12:22.661 +05:30 [INF] Now listening on: https://localhost:5001
+2022-05-04 19:12:22.666 +05:30 [INF] Now listening on: http://localhost:5000
+2022-05-04 19:12:22.668 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 19:12:22.669 +05:30 [INF] Hosting environment: Development
+2022-05-04 19:12:22.669 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-05-04 19:12:24.070 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-05-04 19:12:24.176 +05:30 [INF] Request finished in 110.2176ms 200 text/html;charset=utf-8
+2022-05-04 19:12:24.450 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-05-04 19:12:24.608 +05:30 [INF] Request finished in 157.8483ms 200 application/json;charset=utf-8
+2022-05-04 19:12:40.415 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5001/api/User/authtoken application/json 61
+2022-05-04 19:12:40.567 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.Login (BuyMe.API)'
+2022-05-04 19:12:40.615 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BuyMe.API.DTO.Request.LoginRequest) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 19:12:41.860 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-05-04 19:12:41.944 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 19:12:42.833 +05:30 [INF] Executed DbCommand (98ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:12:42.991 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response'.
+2022-05-04 19:12:43.006 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.Login (BuyMe.API) in 2379.5609ms
+2022-05-04 19:12:43.009 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.Login (BuyMe.API)'
+2022-05-04 19:12:43.017 +05:30 [INF] Request finished in 2602.9534ms 400 application/json; charset=utf-8
+2022-05-04 19:36:38.435 +05:30 [INF] User profile is available. Using 'C:\Users\NKJ022\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-05-04 19:36:38.854 +05:30 [INF] Now listening on: https://localhost:5001
+2022-05-04 19:36:38.859 +05:30 [INF] Now listening on: http://localhost:5000
+2022-05-04 19:36:38.860 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 19:36:38.861 +05:30 [INF] Hosting environment: Development
+2022-05-04 19:36:38.861 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-05-04 19:36:40.802 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-05-04 19:36:40.970 +05:30 [INF] Request finished in 173.057ms 200 text/html;charset=utf-8
+2022-05-04 19:36:41.369 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-05-04 19:36:41.607 +05:30 [INF] Request finished in 238.695ms 200 application/json;charset=utf-8
+2022-05-04 19:36:53.317 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/User/generateEmailVerificationCode/nirbhay@gmail.com  
+2022-05-04 19:36:53.457 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API)'
+2022-05-04 19:36:53.517 +05:30 [INF] Route matched with {action = "GenerateEmailVerificationToken", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateEmailVerificationToken(System.String) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 19:36:54.616 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-05-04 19:36:54.662 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 19:36:55.434 +05:30 [INF] Executed DbCommand (88ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:36:55.471 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response'.
+2022-05-04 19:36:55.488 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API) in 1960.3059ms
+2022-05-04 19:36:55.496 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API)'
+2022-05-04 19:36:55.507 +05:30 [INF] Request finished in 2189.7252ms 400 application/json; charset=utf-8
+2022-05-04 19:37:07.838 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/User/generateEmailVerificationCode/alex@gmail.com  
+2022-05-04 19:37:07.847 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API)'
+2022-05-04 19:37:07.850 +05:30 [INF] Route matched with {action = "GenerateEmailVerificationToken", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateEmailVerificationToken(System.String) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 19:37:07.922 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 19:37:07.939 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:37:08.036 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:37:08.059 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response'.
+2022-05-04 19:37:08.068 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API) in 213.0339ms
+2022-05-04 19:37:08.071 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API)'
+2022-05-04 19:37:08.074 +05:30 [INF] Request finished in 236.3954ms 400 application/json; charset=utf-8
+2022-05-04 19:43:42.543 +05:30 [INF] User profile is available. Using 'C:\Users\NKJ022\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-05-04 19:43:43.253 +05:30 [INF] Now listening on: https://localhost:5001
+2022-05-04 19:43:43.258 +05:30 [INF] Now listening on: http://localhost:5000
+2022-05-04 19:43:43.259 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 19:43:43.260 +05:30 [INF] Hosting environment: Development
+2022-05-04 19:43:43.261 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-05-04 19:43:45.708 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-05-04 19:43:45.876 +05:30 [INF] Request finished in 173.1315ms 200 text/html;charset=utf-8
+2022-05-04 19:43:46.291 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-05-04 19:43:46.320 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: There is an incomplete parameter in the route template. Check that each '{' character has a matching '}' character. (Parameter 'routeTemplate')
+ ---> Microsoft.AspNetCore.Routing.Patterns.RoutePatternException: There is an incomplete parameter in the route template. Check that each '{' character has a matching '}' character.
+   at Microsoft.AspNetCore.Routing.Patterns.RoutePatternParser.Parse(String pattern)
+   at Microsoft.AspNetCore.Routing.Patterns.RoutePatternFactory.Parse(String pattern)
+   at Microsoft.AspNetCore.Routing.Template.TemplateParser.Parse(String routeTemplate)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Routing.Template.TemplateParser.Parse(String routeTemplate)
+   at Microsoft.AspNetCore.Mvc.ApiExplorer.DefaultApiDescriptionProvider.ParseTemplate(ControllerActionDescriptor action)
+   at Microsoft.AspNetCore.Mvc.ApiExplorer.DefaultApiDescriptionProvider.CreateApiDescription(ControllerActionDescriptor action, String httpMethod, String groupName)
+   at Microsoft.AspNetCore.Mvc.ApiExplorer.DefaultApiDescriptionProvider.OnProvidersExecuting(ApiDescriptionProviderContext context)
+   at Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionGroupCollectionProvider.GetCollection(ActionDescriptorCollection actionDescriptors)
+   at Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionGroupCollectionProvider.get_ApiDescriptionGroups()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-05-04 19:43:46.455 +05:30 [INF] Request finished in 164.8165ms 500 text/plain
+2022-05-04 19:44:10.829 +05:30 [INF] User profile is available. Using 'C:\Users\NKJ022\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-05-04 19:44:11.360 +05:30 [INF] Now listening on: https://localhost:5001
+2022-05-04 19:44:11.362 +05:30 [INF] Now listening on: http://localhost:5000
+2022-05-04 19:44:11.364 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 19:44:11.365 +05:30 [INF] Hosting environment: Development
+2022-05-04 19:44:11.366 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-05-04 19:44:13.783 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-05-04 19:44:13.973 +05:30 [INF] Request finished in 195.8544ms 200 text/html;charset=utf-8
+2022-05-04 19:44:14.377 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-05-04 19:44:14.642 +05:30 [INF] Request finished in 265.5945ms 200 application/json;charset=utf-8
+2022-05-04 19:44:25.722 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/User/generateEmailVerificationCode/alex@gmail.com  
+2022-05-04 19:44:25.853 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API)'
+2022-05-04 19:44:25.895 +05:30 [INF] Route matched with {action = "GenerateEmailVerificationToken", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateEmailVerificationToken(System.String) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 19:44:27.100 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-05-04 19:44:27.144 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 19:44:28.040 +05:30 [INF] Executed DbCommand (94ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:44:28.192 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:44:28.227 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response'.
+2022-05-04 19:44:28.252 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API) in 2339.7776ms
+2022-05-04 19:44:28.258 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.GenerateEmailVerificationToken (BuyMe.API)'
+2022-05-04 19:44:28.271 +05:30 [INF] Request finished in 2549.5724ms 400 application/json; charset=utf-8
+2022-05-04 19:45:48.473 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5001/api/User/verifyEmail application/json 313
+2022-05-04 19:45:48.480 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.VerifyEmail (BuyMe.API)'
+2022-05-04 19:45:48.497 +05:30 [INF] Route matched with {action = "VerifyEmail", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyEmail(BuyMe.API.DTO.Request.VerifyEmailRequest) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 19:45:48.617 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 19:45:48.626 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:45:48.779 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.VerifyEmail (BuyMe.API) in 272.7471ms
+2022-05-04 19:45:48.785 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.VerifyEmail (BuyMe.API)'
+2022-05-04 19:45:48.826 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'user')
+   at Microsoft.AspNetCore.Identity.UserManager`1.ConfirmEmailAsync(TUser user, String token)
+   at BuyMe.BL.UserManagementService.VerifyEmail(String email, String token) in C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.BL\Implementation\UserManagementService.cs:line 87
+   at BuyMe.API.Controllers.UserController.VerifyEmail(VerifyEmailRequest data) in C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\Controllers\UserController.cs:line 107
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BuyMe.API.Middlewares.AddToHeaderMiddleware.InvokeAsync(HttpContext context) in C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API\Middlewares\AddToHeaderMiddleware.cs:line 23
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-05-04 19:45:48.997 +05:30 [INF] Request finished in 525.0102ms 500 text/plain
+2022-05-04 19:46:03.896 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5001/api/User/verifyEmail application/json 310
+2022-05-04 19:46:03.906 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.VerifyEmail (BuyMe.API)'
+2022-05-04 19:46:03.910 +05:30 [INF] Route matched with {action = "VerifyEmail", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyEmail(BuyMe.API.DTO.Request.VerifyEmailRequest) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 19:46:03.951 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 19:46:03.964 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 19:46:04.046 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2022-05-04 19:46:04.264 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@p18='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p19='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [Address] = @p1, [ConcurrencyStamp] = @p2, [DOB] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [FirstName] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UserName] = @p17
+WHERE [Id] = @p18 AND [ConcurrencyStamp] = @p19;
+SELECT @@ROWCOUNT;
+2022-05-04 19:46:04.319 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response'.
+2022-05-04 19:46:04.325 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.VerifyEmail (BuyMe.API) in 402.9627ms
+2022-05-04 19:46:04.328 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.VerifyEmail (BuyMe.API)'
+2022-05-04 19:46:04.339 +05:30 [INF] Request finished in 443.5613ms 400 application/json; charset=utf-8
+2022-05-04 20:02:24.833 +05:30 [INF] User profile is available. Using 'C:\Users\NKJ022\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-05-04 20:02:25.534 +05:30 [INF] Now listening on: https://localhost:5001
+2022-05-04 20:02:25.539 +05:30 [INF] Now listening on: http://localhost:5000
+2022-05-04 20:02:25.541 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-04 20:02:25.542 +05:30 [INF] Hosting environment: Development
+2022-05-04 20:02:25.543 +05:30 [INF] Content root path: C:\Users\NKJ022\Documents\Repos\buyme\BuyMe.API
+2022-05-04 20:02:27.835 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2022-05-04 20:02:27.982 +05:30 [INF] Request finished in 149.4528ms 200 text/html;charset=utf-8
+2022-05-04 20:02:28.451 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-05-04 20:02:28.640 +05:30 [INF] Request finished in 188.8971ms 200 application/json;charset=utf-8
+2022-05-04 20:02:36.773 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/User/GetDetails  
+2022-05-04 20:02:37.011 +05:30 [INF] Authorization failed.
+2022-05-04 20:02:37.024 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2022-05-04 20:02:37.031 +05:30 [INF] Request finished in 260.5394ms 401 
+2022-05-04 20:02:56.580 +05:30 [INF] Request starting HTTP/2 POST https://localhost:5001/api/User/authtoken application/json 61
+2022-05-04 20:02:56.593 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.Login (BuyMe.API)'
+2022-05-04 20:02:56.694 +05:30 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BuyMe.API.DTO.Request.LoginRequest) on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 20:02:58.189 +05:30 [WRN] No type was specified for the decimal column 'MRPAmount' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+2022-05-04 20:02:58.256 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 20:02:59.350 +05:30 [INF] Executed DbCommand (108ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 20:02:59.651 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.API.DTO.Response.Response`1[[BuyMe.API.DTO.Response.LoginResponse, BuyMe.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-04 20:02:59.666 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.Login (BuyMe.API) in 2958.0439ms
+2022-05-04 20:02:59.668 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.Login (BuyMe.API)'
+2022-05-04 20:02:59.674 +05:30 [INF] Request finished in 3095.0671ms 200 application/json; charset=utf-8
+2022-05-04 20:03:17.459 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5001/api/User/GetDetails  
+2022-05-04 20:03:17.588 +05:30 [INF] Successfully validated the token.
+2022-05-04 20:03:17.593 +05:30 [INF] Authorization was successful.
+2022-05-04 20:03:17.598 +05:30 [INF] Executing endpoint 'BuyMe.API.Controllers.UserController.GetUserDetails (BuyMe.API)'
+2022-05-04 20:03:17.606 +05:30 [INF] Route matched with {action = "GetUserDetails", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserDetails() on controller BuyMe.API.Controllers.UserController (BuyMe.API).
+2022-05-04 20:03:17.691 +05:30 [INF] Entity Framework Core 3.1.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-04 20:03:17.711 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Address], [a].[ConcurrencyStamp], [a].[DOB], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2022-05-04 20:03:17.717 +05:30 [INF] Executing ObjectResult, writing value of type 'BuyMe.DL.Entities.BuyMeUser'.
+2022-05-04 20:03:17.740 +05:30 [INF] Executed action BuyMe.API.Controllers.UserController.GetUserDetails (BuyMe.API) in 125.8334ms
+2022-05-04 20:03:17.752 +05:30 [INF] Executed endpoint 'BuyMe.API.Controllers.UserController.GetUserDetails (BuyMe.API)'
+2022-05-04 20:03:17.754 +05:30 [INF] Request finished in 295.9067ms 200 application/json; charset=utf-8

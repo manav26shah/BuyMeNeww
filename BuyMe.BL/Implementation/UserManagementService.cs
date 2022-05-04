@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BuyMe.BL
 {
-    public class UserManagementService:IUserManagementService
+    public class UserManagementService : IUserManagementService
     {
         private UserManager<BuyMeUser> _userManager;
 
@@ -22,13 +22,30 @@ namespace BuyMe.BL
             var user = await _userManager.FindByEmailAsync(emailId);
             if (user != null)
             {
+                if (user.EmailConfirmed == false)
+                {
+                    return false;
+                }
                 var result = await _userManager.CheckPasswordAsync(user, password);
                 return result;
             }
             return false;
         }
 
-        public async Task<Tuple<bool,List<string>>> RegisterUser(RegisterUserBL userDetails)
+        public async Task<bool> CheckIfUserExistAndEmailIsNotConfirmed(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return false;
+            }
+            if (user.EmailConfirmed == false)
+            {
+                return true;
+            }
+            return false;
+        }
+        public async Task<Tuple<bool, List<string>>> RegisterUser(RegisterUserBL userDetails)
         {
             var errors = new List<string>();
             var userDL = new BuyMeUser
@@ -45,7 +62,8 @@ namespace BuyMe.BL
             var result = await _userManager.CreateAsync(userDL, userDetails.Password);
             if (result.Succeeded)
             {
-                return Tuple.Create(true,new List<string>());
+                var emailVerifyToken = await _userManager.GenerateEmailConfirmationTokenAsync(userDL); // Email verification token is required only when
+                return Tuple.Create(true, new List<string>());
             }
             else
             {
@@ -55,6 +73,26 @@ namespace BuyMe.BL
                 }
                 return Tuple.Create(false, errors);
             }
+        }
+
+        public async Task<string> GenerateVerifyEmailToken(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            return await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        }
+
+        public async Task<bool> VerifyEmail(string email, string token)
+        {
+
+
+            var user = await _userManager.FindByEmailAsync(email);
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            return result.Succeeded;
+        }
+
+        public async Task<BuyMeUser> GetuserDetails(string email)
+        {
+            return await _userManager.FindByEmailAsync(email);
         }
     }
 }

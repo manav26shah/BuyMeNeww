@@ -16,6 +16,9 @@ using BuyMe.API.Config;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using BuyMe.API.services;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BuyMe.API.Controllers
 {
@@ -28,13 +31,15 @@ namespace BuyMe.API.Controllers
         private ILogger<UserController> _logger;
         private IUserManagementService _userManager;
         private IOptions<JwtConfig> _jwtConfig;
+        private IEmailSender _emailSender;
 
-        public UserController(IUserManagementService userManager, ILogger<UserController> logger, IOptions<JwtConfig> config)
+        public UserController(IUserManagementService userManager, ILogger<UserController> logger, IOptions<JwtConfig> config, IEmailSender emailSender)
         {
            
             _logger = logger;
             _userManager = userManager;
             _jwtConfig = config;
+            _emailSender = emailSender;
         }
         
         [HttpGet("{userId}")]
@@ -62,9 +67,9 @@ namespace BuyMe.API.Controllers
                 };
                 var result = await _userManager.RegisterUser(userBL);
                 _logger.LogDebug("User Db contacted successfully");
-                if (result.Item1)
+                if (result.Item1) // Register user success
                 {
-                    _logger.LogDebug($"User {data.EmailId} created contacted successfully");
+                    _logger.LogDebug($"User {data.EmailId} created  successfully");
                     var res = new Response();
                     res.Message.Add("User Created Succesfully");
                     return Ok(res);
@@ -83,6 +88,36 @@ namespace BuyMe.API.Controllers
             }
         }
 
+        [HttpGet("generateEmailVerificationCode/{email}")]
+        public async Task<IActionResult> GenerateEmailVerificationToken(string email)
+        {
+            if (await _userManager.CheckIfUserExistAndEmailIsNotConfirmed(email))
+            {
+               var token= await _userManager.GenerateVerifyEmailToken(email);
+                _emailSender.SendEmail(email, "Email Verification token", token);
+                var resSucess = new Response();
+                resSucess.Message.Add("Email sent succesfully to the provied email Id");
+                return Ok(resSucess);
+            }
+            var res = new Response();
+            res.Message.Add("user email already confirmed or user does not exist");
+            return BadRequest(res);
+        }
+        [HttpPost("verifyEmail")]
+        public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailRequest data)
+        {
+            if (await _userManager.VerifyEmail(data.Email,data.Token))
+            {
+                var resSucess = new Response();
+                resSucess.Message.Add("Email confirmed success! user can now login");
+                return Ok(resSucess);
+            }
+            var res = new Response();
+            res.Message.Add("Email verification failed");
+            return BadRequest(res);
+        }
+
+
         [HttpPost("authtoken")]
         public async Task<IActionResult> Login([FromBody] LoginRequest data)
         {
@@ -99,6 +134,24 @@ namespace BuyMe.API.Controllers
                 return BadRequest(res);
             }
         }
+
+        [HttpGet("GetDetails")]
+        [Authorize]
+        public async Task<IActionResult> GetUserDetails()
+        {
+            var emailClaim = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+            var email = emailClaim.Value;
+            return Ok(await _userManager.GetuserDetails(email));
+
+
+        }
+
+        //[HttpGet("GetDetails/{email}")]
+        //[Authorize(Roles ="Admin")]
+        //public async IActionResult GetDetailsOfAnyUser(string email)
+        //{
+
+        //}
         private LoginResponse GenerateJWt(string email)
         {
             var authClaims = new List<Claim>

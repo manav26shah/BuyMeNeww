@@ -27,6 +27,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using BuyMe.API.services;
 
 namespace BuyMe.API
 {
@@ -50,6 +51,9 @@ namespace BuyMe.API
             RegisterDbServices(services);
             RegisterBusinessServces(services);
             RegisterConfigurations(services);
+
+            //
+            services.AddScoped<IEmailSender, MockEmailSender>();
 
             // Register Identity
             services.AddIdentity<BuyMeUser, IdentityRole>()
