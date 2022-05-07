@@ -88,6 +88,45 @@ namespace BuyMe.API.Controllers
             }
         }
 
+        [HttpPost("RegisterAsAdmin")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> RegisterUserAsAdmin([FromBody] RegisterUserRequest data)
+        {
+            try
+            {
+                var userBL = new RegisterUserBL
+                {
+                    FirstName = data.FirstName,
+                    LastName = data.LastName,
+                    PhoneNumber = data.PhoneNumber,
+                    EmailId = data.EmailId,
+                    Password = data.Password,
+                    Address = data.Address,
+                    DateOfBirth = data.DateOfBirth
+                };
+                var result = await _userManager.RegisterUser(userBL,true);
+                _logger.LogDebug("User Db contacted successfully");
+                if (result.Item1) // Register user success
+                {
+                    _logger.LogDebug($"User {data.EmailId} created  successfully");
+                    var res = new Response();
+                    res.Message.Add("User Created Succesfully");
+                    return Ok(res);
+                }
+                else
+                {
+                    var res = new Response();
+                    res.Message = result.Item2;
+                    return BadRequest(res);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
         [HttpGet("generateEmailVerificationCode/{email}")]
         public async Task<IActionResult> GenerateEmailVerificationToken(string email)
         {
@@ -124,7 +163,7 @@ namespace BuyMe.API.Controllers
             var result = await _userManager.Login(data.EmailId, data.Password);
             if (result)
             {
-                var res = GenerateJWt(data.EmailId);
+                var res = await GenerateJWt(data.EmailId);
                 return Ok(new Response<LoginResponse> { Data = res });
             }
             else
@@ -152,14 +191,18 @@ namespace BuyMe.API.Controllers
         //{
 
         //}
-        private LoginResponse GenerateJWt(string email)
+        private async Task<LoginResponse> GenerateJWt(string email)
         {
             var authClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email,email),
-                new Claim("Role","Admin")
+                new Claim(ClaimTypes.Email,email)
             };
 
+            var userRoles = await _userManager.GetRoles(email);
+            foreach (var role in userRoles)
+            {
+                authClaims.Add(new Claim(ClaimTypes.Role, role));
+            }
             // Form the security key
             var secKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Value.Secret));
 

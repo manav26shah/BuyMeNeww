@@ -1,4 +1,5 @@
-﻿using BuyMe.BL.Interface;
+﻿using BuyMe.BL.Constants;
+using BuyMe.BL.Interface;
 using BuyMe.DL.Entities;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -11,10 +12,12 @@ namespace BuyMe.BL
     public class UserManagementService : IUserManagementService
     {
         private UserManager<BuyMeUser> _userManager;
+        private RoleManager<IdentityRole> _roleManager;
 
-        public UserManagementService(UserManager<BuyMeUser> userManager)
+        public UserManagementService(UserManager<BuyMeUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public async Task<bool> Login(string emailId, string password)
@@ -45,7 +48,7 @@ namespace BuyMe.BL
             }
             return false;
         }
-        public async Task<Tuple<bool, List<string>>> RegisterUser(RegisterUserBL userDetails)
+        public async Task<Tuple<bool, List<string>>> RegisterUser(RegisterUserBL userDetails, bool isAdmin=false)
         {
             var errors = new List<string>();
             var userDL = new BuyMeUser
@@ -62,7 +65,15 @@ namespace BuyMe.BL
             var result = await _userManager.CreateAsync(userDL, userDetails.Password);
             if (result.Succeeded)
             {
-                var emailVerifyToken = await _userManager.GenerateEmailConfirmationTokenAsync(userDL); // Email verification token is required only when
+                if (!await _roleManager.RoleExistsAsync(UserRoles.Admin))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+                    
+                }
+                if (isAdmin)
+                {
+                    await _userManager.AddToRoleAsync(userDL, UserRoles.Admin);
+                }
                 return Tuple.Create(true, new List<string>());
             }
             else
@@ -93,6 +104,13 @@ namespace BuyMe.BL
         public async Task<BuyMeUser> GetuserDetails(string email)
         {
             return await _userManager.FindByEmailAsync(email);
+        }
+
+        public async Task<IList<string>> GetRoles(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            var userRoles = await _userManager.GetRolesAsync(user);
+            return userRoles;
         }
     }
 }
