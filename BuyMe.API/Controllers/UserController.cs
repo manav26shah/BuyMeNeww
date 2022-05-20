@@ -160,6 +160,8 @@ namespace BuyMe.API.Controllers
         [HttpPost("authtoken")]
         public async Task<IActionResult> Login([FromBody] LoginRequest data)
         {
+            var user = HttpContext.User;
+            
             var result = await _userManager.Login(data.EmailId, data.Password);
             if (result)
             {
@@ -178,7 +180,9 @@ namespace BuyMe.API.Controllers
         [Authorize]
         public async Task<IActionResult> GetUserDetails()
         {
-            var emailClaim = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+            var user = HttpContext.User;
+            var claims = HttpContext.User.Claims.ToList();
+            var emailClaim = claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
             var email = emailClaim.Value;
             return Ok(await _userManager.GetuserDetails(email));
 
@@ -196,6 +200,7 @@ namespace BuyMe.API.Controllers
             var authClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email,email)
+               
             };
 
             var userRoles = await _userManager.GetRoles(email);
