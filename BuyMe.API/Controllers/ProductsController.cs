@@ -81,13 +81,16 @@ namespace BuyMe.API.Controllers
 
             try
             {
-                var headers = HttpContext.Request.Headers.ToList();
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
                 
                 var newProductBl = new ProductBL
                 {
                     Name = data.Name,
-                    MRPAmount = data.MRP,
-                    CategoryId = data.CategoryId,
+                    MRPAmount = data.MRP.Value,
+                    CategoryId = data.CategoryId.Value,
                     MaxOrderAmount = data.MaxOrderAmount
                 };
                 var result = await _productService.AddNewProduct(newProductBl);
@@ -95,7 +98,6 @@ namespace BuyMe.API.Controllers
                 if (result)
                 {
                     return StatusCode(StatusCodes.Status201Created);
-
                 }
                 else
                 {

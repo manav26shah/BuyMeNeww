@@ -17,12 +17,12 @@ namespace BuyMe.API.DTO.Request
         /// Category to which this prodcut belongs, if you dont know the category consult admin/db
         /// </summary>
         [Required]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         /// <summary>
         /// the maximum retail price
         /// </summary>
         [Required]
-        public decimal MRP { get; set; }
+        public decimal? MRP { get; set; }
 
         /// <summary>
         /// The discount offered
