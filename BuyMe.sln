@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuyMe.BL", "BuyMe.BL\BuyMe.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuyMe.DL", "BuyMe.DL\BuyMe.DL.csproj", "{05CBC748-9D23-4BCF-B2C3-DE280758971F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buyme.UnitTest", "Buyme.UnitTest\Buyme.UnitTest.csproj", "{6CDD145E-9875-45F3-828D-1EE99973E324}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{05CBC748-9D23-4BCF-B2C3-DE280758971F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05CBC748-9D23-4BCF-B2C3-DE280758971F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05CBC748-9D23-4BCF-B2C3-DE280758971F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CDD145E-9875-45F3-828D-1EE99973E324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CDD145E-9875-45F3-828D-1EE99973E324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CDD145E-9875-45F3-828D-1EE99973E324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CDD145E-9875-45F3-828D-1EE99973E324}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

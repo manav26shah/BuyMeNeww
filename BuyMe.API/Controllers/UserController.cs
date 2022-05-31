@@ -42,14 +42,7 @@ namespace BuyMe.API.Controllers
             _emailSender = emailSender;
         }
         
-        [HttpGet("{userId}")]
-        public IActionResult GetUserDetails([FromRoute]int userId)
-        {
-
-            _logger.LogInformation("Request originated");
-            return Ok();
-        }
-
+        
         [HttpPost]
         public async Task<IActionResult> RegisterUser([FromBody]RegisterUserRequest data)
         {
@@ -185,8 +178,6 @@ namespace BuyMe.API.Controllers
             var emailClaim = claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
             var email = emailClaim.Value;
             return Ok(await _userManager.GetuserDetails(email));
-
-
         }
 
         //[HttpGet("GetDetails/{email}")]

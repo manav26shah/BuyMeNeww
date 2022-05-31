@@ -14,6 +14,14 @@ function Login(){
             "password":password
         })
     }).then(res=>{
-        console.log(res);
+        if(res.status==200){
+            res.json().then(data=>{
+                var authToken=data.data.token;
+                localStorage.setItem("authToken",authToken);
+                window.location="welcome.html";
+            })
+        }else{
+            swal("Wrong username or password","","error");
+        }
     })
 }
