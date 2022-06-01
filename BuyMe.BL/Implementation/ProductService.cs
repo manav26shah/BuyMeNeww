@@ -10,7 +10,7 @@ namespace BuyMe.BL.Implementation
 {
     public class ProductService : IProductService
     {
-        private IRepo _repo;
+        private readonly IRepo _repo;
 
         public ProductService(IRepo repo)
         {
@@ -33,9 +33,18 @@ namespace BuyMe.BL.Implementation
             return await _repo.AddNewProduct(newEntity);
         }
 
-        public List<Product> GetProducts()
+        public List<Product> GetProducts(int page, double pageResult)
         {
-            return _repo.GetProducts();
+            return _repo.GetProducts(page, pageResult);
+        }
+        public List<Product> GetProductByMatch(string exp)
+        {
+            return _repo.GetProductByMatch(exp);
+        }
+
+        public List<Product> GetProductsByCId(int id, int page, double pageResult)
+        {
+            return _repo.GetProductsByCId(id, page, pageResult);
         }
     }
 }

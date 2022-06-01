@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Buyme.UnitTest.Mocks
 {
-    public class ProductServiceMock : IProductService
+   /* public class ProductServiceMock : IProductService
     {
         public  Task<bool> AddNewProduct(ProductBL newProduct)
         {
@@ -18,5 +18,5 @@ namespace Buyme.UnitTest.Mocks
         {
             throw new NotImplementedException();
         }
-    }
+    }*/
 }
