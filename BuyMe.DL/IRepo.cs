@@ -9,6 +9,7 @@ namespace BuyMe.DL
     public interface IRepo
     {
         List<Product> GetProducts(int page, double pageResult);
+        List<Product> GetProducts();
         Task<bool> AddNewProduct(Product newProduct);
         List<Product> GetProductByMatch(string exp);
         List<Order> GetOrders(string userId);

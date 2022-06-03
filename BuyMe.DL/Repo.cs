@@ -40,6 +40,11 @@ namespace BuyMe.DL
                 .ToList();
         }
 
+        public List<Product> GetProducts()
+        {
+           return _dbContext.Products.ToList();
+        }
+
         public List<Product> GetProductsByCId(int id, int page, double pageResult)
         {
             var pageCount = Math.Ceiling(_dbContext.Products.Count() / pageResult);

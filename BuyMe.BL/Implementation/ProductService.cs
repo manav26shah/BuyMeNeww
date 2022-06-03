@@ -37,6 +37,10 @@ namespace BuyMe.BL.Implementation
         {
             return _repo.GetProducts(page, pageResult);
         }
+        public List<Product> GetProducts()
+        {
+            return _repo.GetProducts();
+        }
         public List<Product> GetProductByMatch(string exp)
         {
             return _repo.GetProductByMatch(exp);

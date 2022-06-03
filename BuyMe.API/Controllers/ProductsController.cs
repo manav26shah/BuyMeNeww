@@ -193,13 +193,33 @@ namespace BuyMe.API.Controllers
             return Ok(retProducts);
         }
 
-        // you cannot return a response body , you can only return response headers
-        /* [HttpHead]
-         public IActionResult TestAPi()
-         {
-             // do some calculation , query db etc for count etc
-             HttpContext.Response.Headers.Add("response-size", "100");
-             return Ok();
-         }*/
+        [HttpGet("GetProducts")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize]
+        public IActionResult GetProducts()
+        {
+            var dbProducts = _productService.GetProducts();
+            var retProducts = new List<ProductResponse>();
+
+            foreach (var item in dbProducts)
+            {
+                retProducts.Add(new ProductResponse
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Image = item.Image,
+                    MRPAmount = item.MRPAmount,
+                    Discount = item.DiscountPercentage,
+                    InStock = item.InStock
+                });
+            }  // Auto mapper
+
+            var res = new Response<List<ProductResponse>>
+            {
+                Data = retProducts
+            };
+            return Ok(res);
+        }
     }
 }

@@ -104,13 +104,38 @@ namespace BuyMe.DL
                     Id = 5,
                     Name = "Laptops",
                     Description = "Test"
+                });
+
+            builder.Entity<Order>().HasData(
+               new Order
+               {
+                   Id = 1,
+                   ProductId = 1,
+                   Email = "alex@gmail.com"
+
+               },
+                new Order
+                {
+                    Id = 2,
+                    ProductId = 2,
+                    Email = "arjun@gmail.com"
                 }
 
-
-
-
             );
-           
+
+            builder.Entity<Cart>().HasData(
+               new Cart
+               {
+                   Id = 1,
+                   ProductId = 1,
+                   Email = "alex@gmail.com"
+               },
+                new Cart
+                {
+                    Id = 2,
+                    ProductId = 2,
+                    Email = "arjun@gmail.com"
+                });
         }
     }
 }
