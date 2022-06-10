@@ -138,9 +138,7 @@ namespace BuyMe.API
             });
 
             services.AddScoped<IRepo, Repo>();
-            /*services.AddScoped<IProductRepo, ProductRepo>();
-            services.AddScoped<ICartRepo, CartRepo>();
-            services.AddScoped<IOrderRepo, OrderRepo>();*/
+           
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
