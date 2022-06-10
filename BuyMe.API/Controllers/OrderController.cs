@@ -1,55 +1,76 @@
-﻿using BuyMe.API.DTO.Response;
-using BuyMe.BL.Interface;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
-using System.Security.Claims;
+using System.Linq;
+using System.Threading.Tasks;
+using BuyMe.API.DTO;
+using BuyMe.API.DTO.Responses;
+using BuyMe.API.Models;
+using BuyMe.BL.Interface;
 
 namespace BuyMe.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
     public class OrderController : ControllerBase
     {
-        private readonly IProductService _productService;
-        private readonly IOrderService _order;
-        private readonly ILogger<OrderController> _logger;
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public OrderController(IProductService productService, ILogger<OrderController> logger, UserManager<IdentityUser> userManager, IOrderService order)
+        private ILogger<OrderController> _logger;
+        private IOrderService _orderService;
+        public OrderController(ILogger<OrderController> logger, IOrderService orderService)
         {
-            _productService = productService;
-            _logger = logger;
-            _userManager = userManager;
-            _order = order;
+            this._logger = logger;
+            this._orderService = orderService;
         }
 
         /// <summary>
-        /// API to Get all Orders
+        /// Get all the orders of a user
         /// </summary>
         [HttpGet]
-        [Authorize]
-        public IActionResult GetOrders()
+        public async Task<IActionResult> GetOrders()
         {
-            var userId = _userManager.GetUserId(HttpContext.User);
-            var dbProducts = _order.GetOrders(userId);
-            var retProducts = new List<OrderResponse>();
-
-            foreach (var item in dbProducts)
+            var items = await _orderService.GetOrders();
+            var orderItems = new List<OrderItemModel>();
+            foreach(var item in items)
             {
-                retProducts.Add(new OrderResponse
+                orderItems.Add(new OrderItemModel
                 {
                     Id = item.Id,
-                    ProductId = item.ProductId,
-                }); 
-            }  // Auto mapper
-            return Ok(retProducts);
+                    OrderAmount = item.OrderAmount,
+                    OrderDate = item.OrderDate
+                });
+            }
+            return Ok(new OrderResponse { orderItems = orderItems});
         }
 
-      
+        /// <summary>
+        /// Place the Order for a user
+        /// </summary>
+        [HttpGet("checkout")]
+        public async Task<IActionResult> PlaceOrder()
+        {
+            try
+            {
+                var result = await _orderService.PlaceOrder();
+                if (result == true)
+                {
+                    var res = new Response();
+                    res.Message.Add("Order Successfully placed.");
+                    return StatusCode(StatusCodes.Status200OK, res);
+                }
+
+                return StatusCode(StatusCodes.Status400BadRequest);
+            }
+            catch(Exception ex)
+            {
+                var res = new Response();
+                res.Message.Add("Some Error Occurred!");
+                return StatusCode(StatusCodes.Status500InternalServerError, res);
+            }
+           
+        }
     }
 }

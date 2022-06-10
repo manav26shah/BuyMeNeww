@@ -1,23 +1,29 @@
-﻿using BuyMe.BL.Interface;
-using BuyMe.DL;
-using BuyMe.DL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using BuyMe.BL.Interface;
+using BuyMe.DL.Entities;
+using BuyMe.DL.Repositories.Repo_Interfaces;
 
 namespace BuyMe.BL.Implementation
 {
     public class OrderService : IOrderService
     {
-        private IRepo _repo;
-
-        public OrderService(IRepo repo)
+        private IOrderRepo _orderRepo;
+        public OrderService(IOrderRepo orderRepo)
         {
-            _repo = repo;
+            this._orderRepo = orderRepo;
         }
-        public List<Order> GetOrders(string Id)
+
+        public async Task<List<Order>> GetOrders()
         {
-            return _repo.GetOrders(Id);
+            return await _orderRepo.GetOrders();
+        }
+
+        public async Task<bool> PlaceOrder()
+        {
+            return await _orderRepo.PlaceOrder();
         }
     }
 }

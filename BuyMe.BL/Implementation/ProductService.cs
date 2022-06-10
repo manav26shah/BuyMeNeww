@@ -1,26 +1,25 @@
-﻿using BuyMe.BL.Interface;
-using BuyMe.DL;
-using BuyMe.DL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using BuyMe.BL.Interface;
+using BuyMe.DL.Entities;
+using BuyMe.DL.Repositories;
 
 namespace BuyMe.BL.Implementation
 {
     public class ProductService : IProductService
     {
-        private readonly IRepo _repo;
+        private IProductRepo _productRepo;
 
-        public ProductService(IRepo repo)
+        public ProductService(IProductRepo productRepo)
         {
-            _repo = repo;
+            this._productRepo = productRepo;
         }
 
-       
         public async Task<bool> AddNewProduct(ProductBL newProduct)
         {
-            if(DateTime.UtcNow.Month==9 || DateTime.UtcNow.Month == 10)
+            if (DateTime.UtcNow.Month == 9 || DateTime.UtcNow.Month == 10)
             {
                 newProduct.MaxOrderAmount = 2;
             }
@@ -28,27 +27,26 @@ namespace BuyMe.BL.Implementation
             {
                 CategoryId = newProduct.CategoryId,
                 Name = newProduct.Name,
-                MaxOrderAmount=newProduct.MaxOrderAmount
+                MRPAmount = newProduct.MRPAmount,
+                InStock = newProduct.InStock,
+                MaxOrderAmount = newProduct.MaxOrderAmount
             };
-            return await _repo.AddNewProduct(newEntity);
+            return await _productRepo.AddNewProduct(newEntity);
         }
 
-        public List<Product> GetProducts(int page, double pageResult)
+        public async Task<List<Product>> GetProducts(int limit = 10, int page = 1)
         {
-            return _repo.GetProducts(page, pageResult);
-        }
-        public List<Product> GetProducts()
-        {
-            return _repo.GetProducts();
-        }
-        public List<Product> GetProductByMatch(string exp)
-        {
-            return _repo.GetProductByMatch(exp);
+            return await _productRepo.GetProducts(limit, page);
         }
 
-        public List<Product> GetProductsByCId(int id, int page, double pageResult)
+        public async Task<List<Product>> GetProductsByCategory(int CategoryId, int limit = 10, int page = 1)
         {
-            return _repo.GetProductsByCId(id, page, pageResult);
+            return await _productRepo.GetProductsByCategory(CategoryId, limit, page);
+        }
+
+        public async Task<List<Product>> GetProductsByName(string name, int limit = 10, int page = 1)
+        {
+            return await _productRepo.GetProductsByName(name);
         }
     }
 }

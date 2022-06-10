@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,10 +10,13 @@ namespace BuyMe.DL.Entities
     public class Cart
     {
         [Key]
-        public int Id { get; set; }    
+        public int Id { get; set; }
         [ForeignKey("Product")]
         public int ProductId { get; set; }
-        [ForeignKey("AspNetUsers")]
-        public string Email { get; set; }
+        public Product Product { get; set; }
+        public int Count { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

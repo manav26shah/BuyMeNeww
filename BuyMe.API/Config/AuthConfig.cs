@@ -8,6 +8,6 @@ namespace BuyMe.API.Config
     public class AuthConfig
     {
         public int BlockAfterHowManyLoginAttempts { get; set; }
-        public int AfterHowManySecondsRetrySendingOTP { get; set; }
+        public int AfterHowManySecondsToRetryLoginOTP { get; set; }
     }
 }

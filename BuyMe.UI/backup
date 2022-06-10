@@ -1,0 +1,62 @@
+<div class="card border-0 shadow">
+  <div class="card-body">
+    <label for="fName">First Name</label>
+
+    <input
+      type="text"
+      name="fName"
+      id="fName"
+      class="form-control my-2 py-2"
+      placeholder="Alex"
+    />
+    <label for="lName">Last Name</label>
+
+    <input
+      type="text"
+      name="lName"
+      id="lName"
+      class="form-control my-2 py-2"
+      placeholder="Smith"
+    />
+    <label for="email">Email Address</label>
+
+    <input
+      type="text"
+      name="email"
+      id="email"
+      class="form-control my-2 py-2"
+      placeholder="name@xyz.com"
+    />
+    <label for="phone">Mobile Number</label>
+
+    <input
+      type="text"
+      name="phone"
+      id="phone"
+      class="form-control my-2 py-2"
+      placeholder="7777788888"
+    />
+    <label for="phone">Address</label>
+
+    <input
+      type="text"
+      name="address"
+      id="address"
+      class="form-control my-2 py-2"
+      placeholder="Eg. City"
+    />
+    <label for="password">Password</label>
+
+    <input
+      type="text"
+      name="password"
+      id="password"
+      class="form-control my-2 py-2"
+      placeholder="**********"
+    />
+    <div class="text-center mt-3">
+      <button class="btn btn-primary" id="register-button">Register</button>
+      <a href="login.html" class="nav-link">Already have an account?</a>
+    </div>
+  </div>
+</div>

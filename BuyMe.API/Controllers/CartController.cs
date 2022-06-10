@@ -1,169 +1,144 @@
-﻿using BuyMe.BL;
-using BuyMe.BL.Interface;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using BuyMe.API.DTO;
+using BuyMe.API.DTO.Requests;
+using BuyMe.API.DTO.Responses;
+using BuyMe.API.Models;
+using BuyMe.BL;
+using BuyMe.BL.Interface;
+using BuyMe.BL.Models;
 
 namespace BuyMe.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
     public class CartController : ControllerBase
     {
-        private ICartService _cartService;
         private ILogger<CartController> _logger;
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public CartController(ICartService cartService, ILogger<CartController> logger, UserManager<IdentityUser> userManager)
+        private ICartService _cartService;
+        public CartController(ICartService cartService, ILogger<CartController> logger)
         {
-            _cartService = cartService;
-            _logger = logger;
-            _userManager = userManager;
+            this._logger = logger;
+            this._cartService = cartService;
         }
 
         /// <summary>
-        /// API to add a new product to the cart, pass productID in Route 
+        /// Get items in cart
         /// </summary>
-        [HttpPost("{_productId}")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [Authorize]
-        public async Task<IActionResult> AddToCart([FromRoute] int _productId)
+        [HttpGet]
+        public async Task<IActionResult> GetCartItems()
         {
             try
             {
-                var userId = _userManager.GetUserId(HttpContext.User);
-                var newCart = new CartBL
+                var cartResponse = new CartResponse();
+                var cart = await _cartService.GetCartItems();
+                if(cart.NumberOfProducts == 0)
                 {
-                    ProductId = _productId,
-                    Email = userId, 
-                };
-                var result = await _cartService.AddToCart(newCart);
-                _logger.LogTrace("Connected and sent data to the DB correctly");
-                if (result)
-                {
-                    return StatusCode(StatusCodes.Status201Created);
-
+                    var res = new Response<CartBL>();
+                    var cartBL = new CartBL();
+                    cartBL.NumberOfProducts = 0;
+                    cartBL.TotalAmount = 0;
+                    res.Data = cartBL;
+                    res.Message.Add("No items in your cart.");
+                    return Ok(res);
                 }
-                else
-                {
-                    return BadRequest("Error while adding new product");
-                }
+                return Ok(new Response<CartBL> { Data = cart});
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                _logger.LogError(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                var res = new Response();
+                res.Message.Add($"Some Error Occurred: {ex.ToString()}");
+                return StatusCode(StatusCodes.Status500InternalServerError, res);
             }
         }
 
         /// <summary>
-        /// API to upate a product in the cart, pass productID in Route 
+        /// Add item to cart
         /// </summary>
-        [HttpPatch("{_productId}")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [Authorize]
-        public async Task<IActionResult> UpdateToCart([FromRoute] int _productId)
+        [HttpPost]
+        public async Task<IActionResult> AddToCart([FromBody] CartItemRequest cartItem)
         {
             try
             {
-                var userId = _userManager.GetUserId(HttpContext.User);
-                var newCart = new CartBL
+                var result = await _cartService.AddItem(new CartItemBL { ProductId = cartItem.ProductId, Count = cartItem.Count });
+                if(result == true)
                 {
-                    ProductId = _productId,
-                    Email = userId,
-                };
-                var result = await _cartService.UpdateToCart(newCart);
-                _logger.LogTrace("Connected and sent data to the DB correctly");
-                if (result)
-                {
-                    return StatusCode(StatusCodes.Status201Created);
-
+                    var res = new Response();
+                    res.Message.Add("Item Added Successfully to the Cart");
+                    return StatusCode(StatusCodes.Status200OK, res);
                 }
-                else
-                {
-                    return BadRequest("Error while updating product");
-                }
+                return StatusCode(StatusCodes.Status400BadRequest);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                _logger.LogError(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                var res = new Response();
+                res.Message.Add("Some Error Occurred!");
+                return StatusCode(StatusCodes.Status500InternalServerError, res);
             }
         }
 
         /// <summary>
-        /// API to Delete product from the cart, pass productID in Route 
+        /// Update item in cart
         /// </summary>
-        [HttpDelete("{_productId}")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [Authorize]
-        public async Task<IActionResult> DeleteFromCart([FromRoute] int _productId)
+        [HttpPut]
+        public async Task<IActionResult> UpdateCart([FromBody] CartItemRequest cartItem)
         {
             try
             {
-                var userId = _userManager.GetUserId(HttpContext.User);
-                /*var newCart = new CartBL
+                var result = await _cartService.UpdateItem(new CartItemBL { ProductId = cartItem.ProductId, Count = cartItem.Count });
+                if (result == true)
                 {
-                    ProductId = _productId,
-                    Email = userId,
-                };*/
-                var result = await _cartService.DeleteFromCart(_productId);
-                _logger.LogTrace("Connected and sent data to the DB correctly");
-                if (result)
-                {
-                    return StatusCode(StatusCodes.Status201Created);
-
+                    var res = new Response();
+                    res.Message.Add("Item updated in cart.");
+                    return StatusCode(StatusCodes.Status200OK, res);
                 }
-                else
-                {
-                    return BadRequest("Error while deleting product");
-                }
+                return StatusCode(StatusCodes.Status400BadRequest);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                var res = new Response();
+                res.Message.Add("Some Error Occurred!");
+                return StatusCode(StatusCodes.Status500InternalServerError, res);
             }
         }
 
         /// <summary>
-        /// API to Checkout from the cart, will convert cart items into orders.
+        /// Delete item from cart
         /// </summary>
-        [HttpGet("Checkout")]
-        [Authorize]
-        public async Task<IActionResult> Checkout()
+        /// <remarks>
+        /// 
+        /// Route -> /api/cart/{product-id}
+        /// 
+        /// </remarks>
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> DeleteCartItem([FromRoute] int Id)
         {
-            try 
-            { 
-                var userId = _userManager.GetUserId(HttpContext.User);
-                var result = await _cartService.Checkout(userId);
-                _logger.LogTrace("Connected and sent data to the DB correctly");
-                if (result)
+            try
+            {
+                var result = await _cartService.DeleteItem(new CartItemBL { ProductId = Id });
+                if (result == true)
                 {
-                    return StatusCode(StatusCodes.Status201Created);
-
+                    var res = new Response();
+                    res.Message.Add("Item deleted from cart successfully.");
+                    return StatusCode(StatusCodes.Status200OK, res);
                 }
-                else
-                {
-                    return BadRequest("Error while checking out");
-                }
+                return StatusCode(StatusCodes.Status400BadRequest);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError);
-    }
-}
+                var res = new Response();
+                res.Message.Add("Some Error Occurred!");
+                return StatusCode(StatusCodes.Status500InternalServerError, res);
+            }
+        }
     }
 }
