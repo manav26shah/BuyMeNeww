@@ -137,9 +137,10 @@ namespace BuyMe.API
                 options.UseSqlServer(Configuration.GetConnectionString("DbConnectionString"));
             });
 
-            services.AddScoped<IProductRepo, ProductRepo>();
+            services.AddScoped<IRepo, Repo>();
+            /*services.AddScoped<IProductRepo, ProductRepo>();
             services.AddScoped<ICartRepo, CartRepo>();
-            services.AddScoped<IOrderRepo, OrderRepo>();
+            services.AddScoped<IOrderRepo, OrderRepo>();*/
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

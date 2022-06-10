@@ -65,7 +65,7 @@ function getProducts() {
 
 function addItemToCart(productId, count) {
   var authToken = localStorage.getItem("authToken");
-  fetch("https://localhost:5001/api/cart", {
+  fetch("https://localhost:44308/api/cart", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

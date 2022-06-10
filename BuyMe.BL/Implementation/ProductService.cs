@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using BuyMe.BL.Interface;
+using BuyMe.DL;
 using BuyMe.DL.Entities;
 using BuyMe.DL.Repositories;
 
@@ -10,11 +11,11 @@ namespace BuyMe.BL.Implementation
 {
     public class ProductService : IProductService
     {
-        private IProductRepo _productRepo;
+        private IRepo _repo;
 
-        public ProductService(IProductRepo productRepo)
+        public ProductService(IRepo repo)
         {
-            this._productRepo = productRepo;
+            this._repo = repo;
         }
 
         public async Task<bool> AddNewProduct(ProductBL newProduct)
@@ -31,22 +32,22 @@ namespace BuyMe.BL.Implementation
                 InStock = newProduct.InStock,
                 MaxOrderAmount = newProduct.MaxOrderAmount
             };
-            return await _productRepo.AddNewProduct(newEntity);
+            return await _repo.AddNewProduct(newEntity);
         }
 
         public async Task<List<Product>> GetProducts(int limit = 10, int page = 1)
         {
-            return await _productRepo.GetProducts(limit, page);
+            return await _repo.GetProducts(limit, page);
         }
 
         public async Task<List<Product>> GetProductsByCategory(int CategoryId, int limit = 10, int page = 1)
         {
-            return await _productRepo.GetProductsByCategory(CategoryId, limit, page);
+            return await _repo.GetProductsByCategory(CategoryId, limit, page);
         }
 
         public async Task<List<Product>> GetProductsByName(string name, int limit = 10, int page = 1)
         {
-            return await _productRepo.GetProductsByName(name);
+            return await _repo.GetProductsByName(name);
         }
     }
 }
