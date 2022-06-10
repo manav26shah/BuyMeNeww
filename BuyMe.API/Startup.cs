@@ -21,9 +21,7 @@ using BuyMe.BL.Implementation;
 using BuyMe.BL.Interface;
 using BuyMe.DL;
 using BuyMe.DL.Entities;
-using BuyMe.DL.Repositories;
-using BuyMe.DL.Repositories.Repo_Classes;
-using BuyMe.DL.Repositories.Repo_Interfaces;
+
 
 namespace BuyMe.API
 {

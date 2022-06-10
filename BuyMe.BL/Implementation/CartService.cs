@@ -6,7 +6,6 @@ using BuyMe.BL.Interface;
 using BuyMe.BL.Models;
 using BuyMe.DL;
 using BuyMe.DL.Entities;
-using BuyMe.DL.Repositories;
 
 namespace BuyMe.BL.Implementation
 {

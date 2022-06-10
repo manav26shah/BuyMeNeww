@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using BuyMe.BL.Interface;
 using BuyMe.DL;
 using BuyMe.DL.Entities;
-using BuyMe.DL.Repositories;
 
 namespace BuyMe.BL.Implementation
 {
