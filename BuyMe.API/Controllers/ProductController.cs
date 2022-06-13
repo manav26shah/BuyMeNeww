@@ -47,7 +47,7 @@ namespace BuyMe.API.Controllers
                 var dbProducts = await _productService.GetProducts(numberOfItemsPerPage, page);
                 var retProducts = new List<ProductModel>();
                 _logger.LogTrace(limit.ToString());
-                var baseUrl = "https://localhost:5001/images/";
+                var baseUrl = "https://localhost:44308/images/";
                 foreach (var item in dbProducts)
                 {
                     retProducts.Add(new ProductModel

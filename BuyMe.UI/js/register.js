@@ -9,15 +9,6 @@ function register() {
   var password = document.getElementById("password").value;
   var address = document.getElementById("address").value;
 
-  // validations
-  //   if (confirmPassword != password) {
-  //     swal(
-  //       "Register Error !",
-  //       "Password and confirm password do not match",
-  //       "error"
-  //     );
-  //     return;
-  //   }
   // call API
   fetch("https://localhost:44308/api/Authentication/Register", {
     method: "POST",

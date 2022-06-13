@@ -14,14 +14,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./public/assets/css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <title>Cart</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <div class="container-fluid">
         <a class="navbar-brand mx-lg-4 m-auto" href="index.html">
-          <img src="./public/assets/img/BuyMe1.png" width="120" alt="" />
+          <img src="./img/BuyMe.png" width="120" alt="" />
         </a>
         <button
           class="navbar-toggler"
@@ -49,13 +49,7 @@
               <a class="nav-link" href="order.html">Orders</a>
             </li>
           </ul>
-          <!-- <form class="d-flex mx-2">
-              <button class="btn btn-outline-light" type="submit">
-                <i class="fa-solid fa-cart-shopping"></i>
-                Cart
-                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-              </button>
-            </form> -->
+          
           <form class="d-flex my-2" role="search">
             <input
               class="form-control me-1"
@@ -87,21 +81,12 @@
                       <div class="card-body">
                         <div class="d-flex justify-content-between">
                           <p class="mb-2">Total Quantity</p>
-                          <p class="mb-2" id="total-quantity">5</p>
+                          <p class="mb-2" id="total-quantity">0</p>
                         </div>
-                        <!-- <div class="d-flex justify-content-between">
-                          <p class="mb-2">Subtotal</p>
-                          <p class="mb-2 ">$4798.00</p>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                          <p class="mb-2">Shipping</p>
-                          <p class="mb-2">$20.00</p>
-                        </div> -->
 
                         <div class="d-flex justify-content-between mb-4">
                           <p class="mb-2">Total(Incl. taxes)</p>
-                          <p class="mb-2" id="total-amount">$4818.00</p>
+                          <p class="mb-2" id="total-amount">0.00</p>
                         </div>
 
                         <button
@@ -111,7 +96,7 @@
                           <div
                             class="d-flex text-white justify-content-between"
                           >
-                            <span id="checkout-amount">Rs. 4818.00</span>
+                            <span id="checkout-amount">Rs. 0.00</span>
                             <span
                               >Checkout <i class="fas fa-arrow-right"></i
                             ></span>
@@ -137,6 +122,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="./public/assets/js/cart.js"></script>
+    <script src="./js/cart.js"></script>
   </body>
 </html>

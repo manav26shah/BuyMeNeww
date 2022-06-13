@@ -10,6 +10,15 @@ function getCartItems() {
   }).then((res) => {
     if (res.status == 200) {
       res.json().then((data) => {
+        if(data == null){
+          document.getElementById("total-quantity").innerHTML =
+          0;
+        document.getElementById("total-amount").innerHTML =
+          "Rs. 0";
+        console.log(data.data.totalAmount.toLocaleString("en-IN"));
+        document.getElementById("checkout-amount").innerHTML =
+          "Rs. 0.00";
+        }
         var cartItemsDiv = document.getElementById("cart-items");
         var cartItems = data.data.cartItems
           .map((item) => {
@@ -55,13 +64,6 @@ function getCartItems() {
         console.log(data.data.totalAmount.toLocaleString("en-IN"));
         document.getElementById("checkout-amount").innerHTML =
           "Rs. " + data.data.totalAmount.toLocaleString("en-IN");
-        // document.querySelectorAll(".add-to-cart").forEach((i) =>
-        //   i.addEventListener("click", () => {
-        //     var select = document.getElementById(`select-product-${i.id}`);
-        //     var value = select.options[select.selectedIndex].value;
-        //     addItemToCart(i.id, value);
-        //   })
-        // );
       });
     }
   });
