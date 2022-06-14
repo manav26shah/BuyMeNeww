@@ -31,9 +31,5 @@
     <ProjectReference Include="..\BuyMe.BL\BuyMe.BL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
 
 </Project>

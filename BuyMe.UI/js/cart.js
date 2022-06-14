@@ -10,14 +10,9 @@ function getCartItems() {
   }).then((res) => {
     if (res.status == 200) {
       res.json().then((data) => {
-        if(data == null){
-          document.getElementById("total-quantity").innerHTML =
-          0;
-        document.getElementById("total-amount").innerHTML =
-          "Rs. 0";
-        console.log(data.data.totalAmount.toLocaleString("en-IN"));
-        document.getElementById("checkout-amount").innerHTML =
-          "Rs. 0.00";
+        if(data.data.cartItems == null || data.data.cartItems == ""){
+          alert("Cart is Empty");
+          window.location = "index.html";
         }
         var cartItemsDiv = document.getElementById("cart-items");
         var cartItems = data.data.cartItems
@@ -26,14 +21,7 @@ function getCartItems() {
             <div class="card-body">
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
-                  <div>
-                    <img
-                      src="${item.image}"
-                      class="img-fluid rounded-3"
-                      alt="Shopping item"
-                      style="width: 65px; height: 65px; object-fit: contain"
-                    />
-                  </div>
+                 
                   <div class="ms-3">
                     <h5>${item.name}</h5>
                   </div>
@@ -47,7 +35,7 @@ function getCartItems() {
                       "en-IN"
                     )}</h5>
                   </div>
-                  <a href="#!" style="color: #cecece"
+                  <a href="#" onclick="removeProduct(${item.productId})"
                     ><i class="fas fa-trash-alt"></i
                   ></a>
                 </div>
@@ -70,3 +58,32 @@ function getCartItems() {
 }
 
 getCartItems();
+
+document.getElementById("btn-logout").addEventListener("click", logout);
+
+function logout() {
+  localStorage.removeItem("authToken");
+  window.location = "login.html";
+}
+
+function removeProduct(id)
+{
+  var authToken = localStorage.getItem("authToken");
+  
+  console.log(id); 
+  fetch("https://localhost:44308/api/Cart/" + id, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${authToken}`,
+    },
+  }).then((res) => {
+    if (res.status == 200) {
+      getCartItems();
+    }
+    else
+    {
+      alert("Something went wrong!");
+    }
+  });
+}

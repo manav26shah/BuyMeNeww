@@ -7,7 +7,7 @@ function checkIfLoggedin() {
         Authorization: "Bearer " + localStorage.getItem("authToken"),
       },
     }).then((res) => {
-      console.log("In response");
+      //console.log("In response");
       console.log(res);
       if (res.status == 200) {
         res.json().then((data) => {
@@ -23,6 +23,8 @@ function checkIfLoggedin() {
         alert("Error occured");
       }
     });
+  } else if(res.status == 401){
+    logout();
   } else {
     window.location = "login.html";
   }

@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="./css/main.css" />
     <title>BuyMe</title>
   </head>
-  <body id="welcome-body" onload="checkIfLoggedin()">
+  <body id="welcome-body" onload="searchProducts()">
     <!-- Just an image -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <div class="container-fluid">
         <a class="navbar-brand mx-lg-4 m-auto" href="index.html">
-          <img src="./img/BuyMe.png" width="120" alt="" />
+          <img src="./img/BuyMe.png" width="120" alt="logo" />
         </a>
         <button
           class="navbar-toggler"
@@ -73,8 +73,6 @@
       </div>
     </nav>
 
-    <h1 id="welcome-text" class="m-4"></h1>
-
     <section class="main">
       <div class="container px-4 px-lg-5 mt-5">
         <div
@@ -90,8 +88,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="./js/global.js"></script>
     <script src="./js/products.js"></script>
-    <script src="./js/index.js"></script>
   </body>
 </html>

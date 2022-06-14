@@ -14,10 +14,17 @@ function GetOrders() {
                 document.getElementById("order-date").innerHTML =
                 data.orderItems[0].orderDate;
         document.getElementById("total-amount").innerHTML =
-          "Rs. " + orderItems.orderAmount.toLocaleString("en-IN");
+          "Rs. " + data.orderItems[0].orderAmount.toLocaleString("en-IN");
             });
         }
     });
 } 
 
 GetOrders();
+
+document.getElementById("btn-logout").addEventListener("click", logout);
+
+function logout() {
+  localStorage.removeItem("authToken");
+  window.location = "login.html";
+}
