@@ -44,7 +44,7 @@ namespace BuyMe.BL.Implementation
             return await _repo.GetProductsByCategory(CategoryId, limit, page);
         }
 
-        public async Task<List<Product>> GetProductsByName(string name, int limit = 10, int page = 1)
+        public async Task<List<Product>> GetProductsByName(string name)
         {
             return await _repo.GetProductsByName(name);
         }

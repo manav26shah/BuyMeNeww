@@ -119,15 +119,14 @@ namespace BuyMe.API.Controllers
         /// Query Parameters
         /// 
         /// </remarks>
-        /// <param name="limit">Number of items per page</param>
-        /// <param name="page">Current page number</param>
-        [HttpGet("search")]
-        public async Task<ActionResult> GetProductbyName([FromQuery] string name, int limit = 10, int page = 1)
+        
+        [HttpGet("search/{exp}")]
+        //[Authorize]
+        public async Task<ActionResult> GetProductbyName([FromRoute] string exp)
         {
             try
             {
-                var numberOfItemsPerPage = limit > 20 ? 20 : limit;
-                var dbProducts = await _productService.GetProductsByName(name, numberOfItemsPerPage, page);
+                var dbProducts = await _productService.GetProductsByName(exp);
                 var retProducts = new List<ProductModel>();
                 Console.WriteLine(HttpContext.User.Identity.Name);
                 foreach (var item in dbProducts)
@@ -142,7 +141,7 @@ namespace BuyMe.API.Controllers
                         InStock = item.InStock
                     });
                 }  // Auto mapper
-                return StatusCode(StatusCodes.Status200OK, new ProductResponse { Products = retProducts, CurrentPage = page });
+                return StatusCode(StatusCodes.Status200OK, new ProductResponse { Products = retProducts, CurrentPage = 1 });
             }
             catch(Exception ex)
             {

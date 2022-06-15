@@ -193,11 +193,9 @@ namespace BuyMe.DL
                 .ToListAsync();
         }
 
-        public async Task<List<Product>> GetProductsByName(string name, int limit = 10, int page = 1)
+        public async Task<List<Product>> GetProductsByName(string name)
         {
             return await _dbContext.Products.Where(x => x.Name.ToLower().Contains(name))
-                .Skip((page - 1) * limit)
-                .Take(limit)
                 .ToListAsync();
         }
     }

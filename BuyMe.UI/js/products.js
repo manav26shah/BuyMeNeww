@@ -95,10 +95,11 @@ function searchProducts()
   console.log(query);
   if(query == null || query == "")
   {
+    console.log("Hii");
     getProducts();
   }
   else{
-    fetch(`https://localhost:44308/api/Products/search?name=${query}&limit=10&page=1`, {
+    fetch("https://localhost:44308/api/Products/search/" + query, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
