@@ -12,5 +12,6 @@ namespace BuyMe.BL.Interface
         Task<List<Product>> GetProductsByCategory(int CategoryId, int limit = 10, int page = 1);
         Task<List<Product>> GetProductsByName(string name);
         Task<bool> AddNewProduct(ProductBL newProduct);
+        Task<Pincode> CheckAvailability(string pincode, int productId);
     }
 }

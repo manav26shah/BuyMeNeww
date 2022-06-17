@@ -22,6 +22,7 @@ namespace BuyMe.DL
         Task<bool> UpdateItem(Cart cart);
         Task<bool> DeleteItem(Cart cart);
         Task<List<CartItemModel>> GetCartItems();
-
+        //void CheckAvailability(string pincode, int productId);
+        Task<Pincode> CheckAvailability(string pincode, int productId);
     }
 }

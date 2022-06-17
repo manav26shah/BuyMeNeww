@@ -66,6 +66,7 @@ namespace BuyMe.API.Controllers
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 var res = new Response();
                 res.Message.Add("Some Error Occurred!");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);

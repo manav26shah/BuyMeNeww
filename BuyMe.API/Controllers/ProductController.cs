@@ -13,6 +13,7 @@ using BuyMe.API.DTO.Responses;
 using BuyMe.API.Models;
 using BuyMe.BL;
 using BuyMe.BL.Interface;
+using System.Text.RegularExpressions;
 
 namespace BuyMe.API.Controllers
 {
@@ -65,6 +66,7 @@ namespace BuyMe.API.Controllers
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 var res = new Response();
                 res.Message.Add("Some Error Occurred!");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);
@@ -105,6 +107,7 @@ namespace BuyMe.API.Controllers
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 var res = new Response();
                 res.Message.Add("Some Error Occurred!");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);
@@ -145,6 +148,7 @@ namespace BuyMe.API.Controllers
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 var res = new Response();
                 res.Message.Add("Some Error Occurred!");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);
@@ -191,6 +195,39 @@ namespace BuyMe.API.Controllers
                 res.Message.Add("Some Error Occurred!");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);
             }
+        }
+
+        /// <summary>
+        /// Check product availability by pincode 
+        /// </summary>
+        /// <remarks>
+        [HttpPost("{pincode}")]
+        public async Task<IActionResult> CheckAvailability([FromRoute] string pincode, int productId)
+        {
+            try
+            {
+
+                Regex rgx = new Regex("^[1-9][0-9]{5}$");
+                var res = rgx.IsMatch(pincode);
+                if (res)
+                {
+                    var result = await _productService.CheckAvailability(pincode, productId);
+                    if(result.Id != "0")
+                        return StatusCode(StatusCodes.Status200OK, result);
+                    else
+                        return BadRequest(result);
+                }
+                else
+                    return BadRequest("Error while validating pincode");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                var res = new Response();
+                res.Message.Add("Some Error Occurred!");
+                return StatusCode(StatusCodes.Status500InternalServerError, res);
+            }
+
         }
     }
 }

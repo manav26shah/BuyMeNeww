@@ -48,5 +48,10 @@ namespace BuyMe.BL.Implementation
         {
             return await _repo.GetProductsByName(name);
         }
+
+        public async Task<Pincode> CheckAvailability(string pincode, int productId)
+        {
+            return await _repo.CheckAvailability(pincode, productId);
+        }
     }
 }

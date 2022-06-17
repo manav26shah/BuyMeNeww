@@ -62,6 +62,7 @@ namespace BuyMe.DL
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -178,6 +179,7 @@ namespace BuyMe.DL
 
         public async Task<List<Product>> GetProducts(int limit = 10, int page = 1)
         {
+            CheckAvailability("160017", 2);
             return await _dbContext.Products
                 .Skip((page - 1) * limit)
                 .Take(limit)
@@ -197,6 +199,22 @@ namespace BuyMe.DL
         {
             return await _dbContext.Products.Where(x => x.Name.ToLower().Contains(name))
                 .ToListAsync();
+        }
+
+        public async Task<Pincode> CheckAvailability(string pincode, int productId)
+        {
+            var result =  _dbContext.Pincodes.FirstOrDefault(x => x.Id == pincode && x.ProductId == productId);
+            if (result == null)
+                return new Pincode
+                {
+                    Id = "0",
+                    deliverydays = "Not available at your pincode"
+                };
+            else
+            {
+                return result;
+            }
+
         }
     }
 }

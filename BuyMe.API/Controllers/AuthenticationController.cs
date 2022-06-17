@@ -27,7 +27,7 @@ namespace BuyMe.API.Controllers
     [Route("api/[controller]")]
     public class AuthenticationController : ControllerBase
     {
-        private IAuthenticationService _authenticationService;
+        private readonly IAuthenticationService _authenticationService;
         private readonly IConfiguration _configuration;
 
 
@@ -60,7 +60,7 @@ namespace BuyMe.API.Controllers
             }catch(Exception ex)
             {
                 var res = new Response();
-                res.Message.Add($"Some Error Occurred: {ex.ToString()}");
+                res.Message.Add($"Some Error Occurred: {ex}");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);
             }
             
@@ -93,13 +93,16 @@ namespace BuyMe.API.Controllers
                 }
                 else
                 {
-                    var res = new Response();
-                    res.Message = result.Item2;
+                    Response res = new Response
+                    {
+                        Message = result.Item2
+                    };
                     return StatusCode(StatusCodes.Status417ExpectationFailed, res);
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 var res = new Response();
                 res.Message.Add("Some Error Occurred!");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);
@@ -135,6 +138,7 @@ namespace BuyMe.API.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 var res = new Response();
                 res.Message.Add("Some Error Occurred!");
                 return StatusCode(StatusCodes.Status500InternalServerError, res);
@@ -173,6 +177,7 @@ namespace BuyMe.API.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return new LoginResponse
                 {
                     Token = null,
